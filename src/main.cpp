@@ -1,9 +1,5 @@
-// dear imgui: "null" example application
-// (compile and link imgui, create context, run headless with NO INPUTS, NO GRAPHICS OUTPUT)
-// This is useful to test building, but you cannot interact with anything here!
+// while doing this, I see a cumputer science techer call to TI
 #include "../dependencies/imgui-master/imgui.h"
-#include "../dependencies/imgui-master/backends/imgui_impl_win32.h"
-#include "../dependencies/imgui-master/backends/imgui_impl_dx11.h"
 #include <stdio.h>
 
 int main(int, char**)
