@@ -1,5 +1,5 @@
 // while doing this, I see a cumputer science techer call to TI
-#include "../dependencies/imgui-master/imgui.h"
+#include "./lib/imgui-master/imgui.h"
 #include <stdio.h>
 
 int main(int, char**)

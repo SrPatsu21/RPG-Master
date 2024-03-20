@@ -2,15 +2,19 @@
     "tasks": [
         {
             "type": "cppbuild",
-            "label": "C/C++: gcc build active file",
-            "command": "gcc",
+            "label": "C/C++: g++.exe build active file",
+            "command": "C:\\msys64\\ucrt64\\bin\\g++.exe",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-               // "workspaceFolder/*.cpp",
-                "${file}",
+                "${workspaceFolder}/src/*.cpp",
+
+                //lib
+                "${workspaceFolder}/src/lib/imgui-master/*.cpp",
+                "${workspaceFolder}/src/lib/imgui-master/backends/*.cpp",
+
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}"
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
             ],
             "options": {
                 "cwd": "${fileDirname}"
