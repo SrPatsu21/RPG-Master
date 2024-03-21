@@ -7,11 +7,11 @@
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${workspaceFolder}/src/*.cpp",
+                "${workspaceFolder}\\src\\*.cpp",
 
                 //lib
-                "${workspaceFolder}/src/lib/imgui-master/*.cpp",
-                "${workspaceFolder}/src/lib/imgui-master/backends/*.cpp",
+                // "${workspaceFolder}/src/backends/*.cpp",
+                // "${workspaceFolder}/src/backends/*.c",
 
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
