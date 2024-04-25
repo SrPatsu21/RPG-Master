@@ -3,14 +3,15 @@
         {
             "name": "Win32",
             "includePath": [
-                "C:\\msys64\\ucrt64\\include"
+                "C:\\msys64\\ucrt64\\include",
+                "/usr/include/x86_64-linux-gnu"
             ],
             "defines": [
                 "_DEBUG",
                 "UNICODE",
                 "_UNICODE"
             ],
-            "compilerPath": "C:/msys64/ucrt64/bin/g++.exe",
+            "compilerPath": "/usr/bin/g++",
             "intelliSenseMode": "windows-gcc-x86"
         }
     ],

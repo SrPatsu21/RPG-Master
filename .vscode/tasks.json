@@ -8,8 +8,11 @@
                 "-fdiagnostics-color=always",
                 "-g",
                 "${workspaceFolder}\\src\\*.cpp",
+                "${workspaceFolder}\\src\\imgui\\*.cpp",
+                "${workspaceFolder}\\src\\imgui\\backends\\*.cpp",
+                "${workspaceFolder}\\src\\imgui\\backends\\*.h",
 
-                //lib
+                // lib
                 // "${workspaceFolder}/src/backends/*.cpp",
                 // "${workspaceFolder}/src/backends/*.c",
 
