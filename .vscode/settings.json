@@ -1,4 +1,7 @@
+
 {
+    "editor.fontFamily": "'Fira Code'",
+    "editor.fontLigatures": true,
     "cmake.sourceDirectory": "D:/code/RPG-Master/src/",
     "files.associations": {
         "ostream": "cpp",
