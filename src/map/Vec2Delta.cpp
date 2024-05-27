@@ -2,7 +2,7 @@
 
 Vec2Delta::Vec2Delta(float delta = 0, float scale = 0)
 {
-    setDelta(x);
+    setDelta(delta);
     setScale(scale);
 };
 Vec2Delta::~Vec2Delta()

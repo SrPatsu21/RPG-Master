@@ -11,7 +11,8 @@ Entity::Entity(Vec2* position, Vec2Delta* direction)
 };
 Entity::~Entity()
 {
-
+    delete getPosition();
+    delete getDirection();
 };
 void Entity::setPosition(Vec2* position)
 {
