@@ -25,7 +25,14 @@ bool HitBox::isColiding(Vec2* vec2)
 };
 bool HitBox::isColiding(int x, int y)
 {
-
+    if (getEdgeInitial()->getX() > x && getEdgeFinal()->getX() < x)
+    {
+        if (getEdgeInitial()->getY() > y && getEdgeFinal()->getY() < y)
+        {
+                return true;
+        }
+    }
+    return false;
 };
 HitBox* HitBox::clone()
 {
