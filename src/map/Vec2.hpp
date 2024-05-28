@@ -4,19 +4,19 @@
 class Vec2
 {
 private:
-    int x;
-    int y;
+    double x;
+    double y;
 public:
-    Vec2(int x = 0, int y = 0);
+    Vec2(double x = 0, double y = 0);
     ~Vec2();
-    int getX();
-    int getY();
-    void setX(int x);
-    void setY(int y);
-    void moveX(int distance);
-    void moveY(int distance);
-    void moveXY(int x, int y);
-    void setPos(int x, int y);
+    double getX();
+    double getY();
+    void setX(double x);
+    void setY(double y);
+    void moveX(double distance);
+    void moveY(double distance);
+    void moveXY(double x, double y);
+    void setPos(double x, double y);
     Vec2* clone();
 };
 #endif

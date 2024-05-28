@@ -1,6 +1,6 @@
 #include "Vec2.hpp"
 
-Vec2::Vec2(int x = 0, int y = 0)
+Vec2::Vec2(double x = 0, double y = 0)
 {
     this->x = x;
     this->y = y;
@@ -10,36 +10,36 @@ Vec2::~Vec2()
 {
 };
 
-int Vec2::getX()
+double Vec2::getX()
 {
     return this->x;
 };
-int Vec2::getY()
+double Vec2::getY()
 {
     return this->y;
 };
-void Vec2::setX(int x)
+void Vec2::setX(double x)
 {
     this->x = x;
 };
-void Vec2::setY(int y)
+void Vec2::setY(double y)
 {
     this->y = y;
 };
-void Vec2::moveX(int distance)
+void Vec2::moveX(double distance)
 {
     this->x += distance;
 };
-void Vec2::moveY(int distance)
+void Vec2::moveY(double distance)
 {
     this->y += distance;
 };
-void Vec2::moveXY(int x, int y)
+void Vec2::moveXY(double x, double y)
 {
     moveX(x);
     moveY(y);
 };
-void Vec2::setPos(int x, int y)
+void Vec2::setPos(double x, double y)
 {
     setX(x);
     setY(y);
