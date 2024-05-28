@@ -1,7 +1,7 @@
 #include "./AbstractCollisionableEntity.hpp"
 
-AbstractCollisionableEntity::AbstractCollisionableEntity(Vec2* position, HitBox* hitbox, Vec2Delta* direction)
-: Entity(position, direction)
+AbstractCollisionableEntity::    AbstractCollisionableEntity(HitBox* hitbox)
+: Entity()
 {
     setHitBox(hitbox);
 };

@@ -7,22 +7,14 @@
 class Entity
 {
 private:
-    Vec2* position;
-    Vec2Delta* direction;
+protected:
+    Entity(){};
+    ~Entity(){};
 public:
-    Entity(Vec2* position, float delta = 0, float speed);
-    Entity(Vec2* position, Vec2Delta* direction);
-    ~Entity();
-    void setPosition(Vec2* position);
-    void setPosition(int x, int y);
-    Vec2* getPosition();
-    //radians 
-    virtual void setDirection(float delta);
-    Vec2Delta* getDirection();
-    void setSpeed(float speed);
-    int getSpeed();
-    virtual void move();
-    virtual void tick();
+    virtual void setPosition(Vec2* position) = 0;
+    virtual void setPosition(double x, double y) = 0;
+    virtual Vec2* getPosition() = 0;
+    virtual void move() = 0;
+    virtual void tick() = 0;
 };
-
 #endif

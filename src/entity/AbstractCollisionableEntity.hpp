@@ -10,8 +10,7 @@ class AbstractCollisionableEntity : public Entity
 private:
     HitBox* hitbox;
 public:
-
-    AbstractCollisionableEntity(Vec2* position, HitBox* hitbox, Vec2Delta* direction);
+    AbstractCollisionableEntity(HitBox* hitbox);
     void setHitBox(HitBox* hitbox);
     HitBox* getHitBox();
     virtual void move();
