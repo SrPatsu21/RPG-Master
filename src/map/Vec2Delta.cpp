@@ -30,11 +30,16 @@ float Vec2Delta::getScale()
 {
     return this->scale;
 };
+void Vec2Delta::setDeltaScale(float delta, float scale)
+{
+    setDelta(delta);
+    setScale(scale);
+};
 Vec2* Vec2Delta::vecNormalMoviClac(Vec2* vec2)
 {
     vec2->moveXY((getDeltaX()*getScale()), (getDeltaY()*getScale()));
 };
 Vec2Delta* Vec2Delta::clone()
 {
-    return new Vec2Delta(this->x, this->y);
+    return new Vec2Delta(std::acos(this->x), this->scale);
 };
