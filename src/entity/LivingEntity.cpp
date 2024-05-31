@@ -1,6 +1,6 @@
 #include "./LivingEntity.hpp"
 
-LivingEntity::LivingEntity(HitBox* hitbox)
+LivingEntity::LivingEntity(HitBox* hitbox, int maxlife = 10)
 : AbstractCollisionableEntity(hitbox)
 {
 
@@ -9,6 +9,10 @@ LivingEntity::~LivingEntity()
 {
 
 }
+void LivingEntity::setMaxLife(int maxlife)
+{
+    this->maxlife = maxlife;
+};
 int LivingEntity::getMaxLife()
 {
     return maxlife;

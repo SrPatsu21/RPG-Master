@@ -76,6 +76,10 @@ void AbstractParticles::setPosition(double x, double y)
 {
     this->pos->setPos(x, y);
 };
+void AbstractParticles::setPosition(Vec2* position)
+{
+    setPosition(position->getX(), position->getY());
+};
 void AbstractParticles::setLifeTime(int lifetime)
 {
     this->lifetime = lifetime;

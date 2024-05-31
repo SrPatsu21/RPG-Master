@@ -12,8 +12,10 @@ private:
 protected:
  void setMaxLife(int maxlife);
 public:
-    LivingEntity(HitBox* hitbox, int maxlife);
+    LivingEntity(HitBox* hitbox, int maxlife = 10);
     ~LivingEntity();
+    //! using this may bug the life
+    void setMaxLife(int maxlife);
     int getMaxLife();
     void setLife(int life);
     int getLife();
