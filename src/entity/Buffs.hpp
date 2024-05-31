@@ -11,22 +11,48 @@ enum BuffTypes
 class Buffs
 {
 private:
-LivingEntity* Owner;
+LivingEntity* owner;
 int lifetime;
 int intesity;
 
 protected:
 BuffTypes type;
 public:
-    Buffs(LivingEntity* Owner, int lifetime, int intesity);
+    Buffs(LivingEntity* owner, int lifetime, int intesity);
     ~Buffs();
     BuffTypes getType();
     //* effect change what's needed
-    void doEffect();
+    virtual void doEffect();
     //* remove what effect have done
-    void undoEffect();
+    virtual void undoEffect();
     //* redoce lifetime, if needed replay effect
-    void tick();
+    virtual void tick();
 };
 
+Buffs::Buffs(LivingEntity* owner, int lifetime, int intesity)
+{
+    this->owner = owner;
+    this->lifetime = lifetime;
+    this->intesity = intesity;
+};
+Buffs::~Buffs()
+{
+
+};
+BuffTypes Buffs::getType()
+{
+    return type;
+};
+void Buffs::doEffect()
+{
+
+};
+void Buffs::undoEffect()
+{
+
+};
+void Buffs::tick()
+{
+    
+};
 #endif
