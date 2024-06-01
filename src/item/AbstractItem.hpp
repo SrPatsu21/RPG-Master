@@ -1,16 +1,21 @@
 #ifndef ABSTRACTITEM_HPP
 #define ABSTRACTITEM_HPP
 
+#include <iostream>
+#include "./../inventory/InvSlot.hpp"
+
 class AbstractItem
 {
 private:
-
+    InvSlot* own;
 protected:
-    AbstractItem(){};
+    AbstractItem(InvSlot* own = NULL);
 public:
-    ~AbstractItem(){};
-
-    virtual void useR() = 0;
-    virtual void useL() = 0;
+    ~AbstractItem();
+    void setInvSlot(InvSlot* slot);
+    InvSlot* getInvSlot();
+    virtual void useR();
+    virtual void useL();
 };
+
 #endif
