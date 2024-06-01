@@ -1,6 +1,6 @@
 #include "Vec2Delta.hpp"
 
-Vec2Delta::Vec2Delta(float delta = 0, float scale = 0)
+Vec2Delta::Vec2Delta(float delta, float scale)
 {
     setDelta(delta);
     setScale(scale);
@@ -35,7 +35,7 @@ void Vec2Delta::setDeltaScale(float delta, float scale)
     setDelta(delta);
     setScale(scale);
 };
-Vec2* Vec2Delta::vecNormalMoviClac(Vec2* vec2)
+void Vec2Delta::vecNormalMoviClac(Vec2* vec2)
 {
     vec2->moveXY((getDeltaX()*getScale()), (getDeltaY()*getScale()));
 };

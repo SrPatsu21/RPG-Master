@@ -7,9 +7,9 @@
 class World
 {
 private:
-    std::list<Type> projectiles;
-    std::list<Type> livingentity;
-    std::list<Type> players;
+    // std::list<Type> projectiles;
+    // std::list<Type> livingentity;
+    // std::list<Type> players;
 public:
     World(/* args */);
     ~World();

@@ -13,8 +13,9 @@ private:
     Vec2* pos;
     Vec2Delta* direction;
 public:
-    HitBox(double pos_x = 0, double pos_y= 0, double x0 = 0, double y0 = 0, double x1, double y1, float direction = 0, float speed = 0);
-    HitBox(Vec2* pos ,Vec2* v0, Vec2* v1, Vec2Delta* direction);
+
+    HitBox(double pos_x, double pos_y, double x0 = 0, double y0 = 0, double x1 = 1, double y1 = 1, float direction = 0, float speed = 0);
+    HitBox(Vec2* pos, Vec2* v0, Vec2* v1, Vec2Delta* direction);
     Vec2* getEdgeInitial();
     Vec2* getEdgeFinal();
     Vec2* getPos();

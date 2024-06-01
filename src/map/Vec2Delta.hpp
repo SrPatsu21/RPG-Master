@@ -19,8 +19,8 @@ public:
     void setScale(float scale);
     float getScale();
     void setDeltaScale(float delta, float scale);
-    //*change directly on memory too
-    Vec2* vecNormalMoviClac(Vec2* vec2);
+    //*change directly on memory
+    void vecNormalMoviClac(Vec2* vec2);
     Vec2Delta* clone();
 };
 #endif

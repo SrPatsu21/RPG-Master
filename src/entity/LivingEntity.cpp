@@ -1,9 +1,9 @@
 #include "./LivingEntity.hpp"
 
-LivingEntity::LivingEntity(HitBox* hitbox, int maxlife = 10)
+LivingEntity::LivingEntity(HitBox* hitbox, int maxlife)
 : AbstractCollisionableEntity(hitbox)
 {
-
+    this->maxlife = maxlife;
 }
 LivingEntity::~LivingEntity()
 {

@@ -8,7 +8,12 @@ Buffs::Buffs(LivingEntity* owner, int lifetime, int intesity)
 };
 Buffs::~Buffs()
 {
-    
+    undoEffect();
+    // ((AbstractMob*)(getOwner()))->removeBuff(this);
+};
+LivingEntity* Buffs::getOwner()
+{
+    return this->owner;
 };
 void Buffs::setIntensity(int intensity)
 {

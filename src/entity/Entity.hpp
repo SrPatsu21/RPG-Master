@@ -1,6 +1,9 @@
 #ifndef ENTITY_HPP
 #define ENTITY_HPP
 
+#include "./../map/Vec2.hpp"
+#include "./../map/Vec2Delta.hpp"
+
 class Entity
 {
 private:

@@ -1,18 +1,26 @@
 #ifndef ABSTRACTMOB_HPP
 #define ABSTRACTMOB_HPP
 
+
+#include <list>
 #include "./LivingEntity.hpp"
+#include "./buff/Buffs.hpp"
 
 class AbstractMob : public LivingEntity
 {
 private:
-    /* data */
+    std::list<Buffs*> buffs;
+protected:
+static const int MAX_BUFFS = 20;
 public:
     AbstractMob(HitBox* hitbox, int maxlife);
     ~AbstractMob();
-    virtual void regeLife();
-    virtual void addBuff();
+    virtual void regenLife();
+    virtual void addBuff(Buffs* buff);
+    //* remove from begin
     virtual void removeBuff();
+    virtual void removeBuff(Buffs* buff);
+    virtual void removeBuff(BuffTypes type);
     virtual void clearBuff();
     virtual void receiveDamage(AbstractMob* Enemy);
     virtual void atack();
@@ -20,52 +28,6 @@ public:
     virtual void heal(int amount);
     virtual void walk(Vec2 target);
     virtual void tick();
-};
-
-AbstractMob::AbstractMob(HitBox* hitbox, int maxlife)
-: LivingEntity(hitbox, maxlife)
-{
-
-};
-void AbstractMob::heal(int amount)
-{
-    LivingEntity::heal;
-};
-AbstractMob::~AbstractMob()
-{
-
-};
-void AbstractMob::addBuff()
-{
-
-};
-void AbstractMob::removeBuff()
-{
-
-};
-void AbstractMob::clearBuff()
-{
-
-};
-void AbstractMob::receiveDamage(AbstractMob* Enemy)
-{
-
-};
-void AbstractMob::atack()
-{
-
-};
-void AbstractMob::move()
-{
-    LivingEntity::move;
-};
-void AbstractMob::walk(Vec2 target)
-{
-
-};
-void AbstractMob::tick()
-{
-    LivingEntity::tick();
 };
 
 #endif

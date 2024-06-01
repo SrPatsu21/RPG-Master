@@ -1,7 +1,7 @@
 #include "HitBox.hpp"
 
 //creat new Vec2 objects
-HitBox::HitBox(double pos_x = 0, double pos_y= 0, double x0 = 0, double y0 = 0, double x1, double y1, float direction = 0, float speed = 0)
+HitBox::HitBox(double pos_x, double pos_y, double x0, double y0, double x1, double y1, float direction, float speed)
 {
     HitBox(new Vec2(pos_x, pos_y), new Vec2(x0, y0), new Vec2(x1, y1), new Vec2Delta(direction, speed));
 };
@@ -51,5 +51,5 @@ HitBox* HitBox::clone()
         this->getEdgeInitial()->clone(),
         this->getEdgeFinal()->clone(),
         this->getDirection()->clone()
-    );
+        );
 };

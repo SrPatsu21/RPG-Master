@@ -12,8 +12,8 @@ private:
     Vec2Delta* direction;
     int lifetime;
 public:
+    AbstractParticles(Vec2* pos, Vec2Delta* direction, int lifetime = 1);
     AbstractParticles(double pos_x = 0, double pos_y = 0, float delta = 0, float scale = 0, int lifetime = 0);
-    AbstractParticles(Vec2* pos = new Vec2(), Vec2Delta* direction = new Vec2Delta(), int lifetime = 0);
     ~AbstractParticles();
     virtual void setPosition(Vec2* position);
     virtual void setPosition(double x, double y);

@@ -1,7 +1,8 @@
 #ifndef BUFFS_HPP
 #define BUFFS_HPP
 
-#include "LivingEntity.hpp"
+#include "./../LivingEntity.hpp"
+// #include "./../AbstractMob.hpp"
 
 enum BuffTypes
 {
@@ -21,6 +22,7 @@ int intesity;
 public:
     Buffs(LivingEntity* owner, int lifetime, int intesity);
     ~Buffs();
+    LivingEntity* getOwner();
     void setIntensity(int intensity);
     int getIntensity();
     void setLifeTime(int lifetime);

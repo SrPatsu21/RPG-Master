@@ -11,6 +11,7 @@ private:
     HitBox* hitbox;
 public:
     AbstractCollisionableEntity(HitBox* hitbox);
+    ~AbstractCollisionableEntity();
     HitBox* getHitBox();
     virtual void setPosition(double x, double y);
     Vec2* getPosition();
