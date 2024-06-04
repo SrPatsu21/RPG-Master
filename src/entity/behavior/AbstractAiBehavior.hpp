@@ -3,7 +3,8 @@
 
 #include "./../AbstractMob.hpp"
 
-enum BEHAIVIORTYPE{
+enum BEHAIVIORTYPE
+{
     NormalBehaiver,
     FleeBehavior,
     AtackTargetBehaiver,
@@ -19,11 +20,11 @@ private:
 protected:
     AbstractAiBehavior(BEHAIVIORTYPE type, AbstractMob* target = NULL);
 public:
-    ~AbstractAiBehavior();
     BEHAIVIORTYPE getBehaiviorType();
     void setTarget(AbstractMob* target);
     void loseTarget();
     AbstractMob* getTarget();
+    AbstractMob* getOwn();
     virtual void behavior() = 0;
 };
 

@@ -26,7 +26,7 @@ public:
     virtual void atack();
     virtual void move();
     virtual void heal(int amount);
-    virtual void walk(Vec2 target);
+    virtual void walk(Vec2* target);
     virtual void tick();
 };
 

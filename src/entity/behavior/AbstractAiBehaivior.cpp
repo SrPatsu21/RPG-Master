@@ -5,10 +5,6 @@ AbstractAiBehavior::AbstractAiBehavior(BEHAIVIORTYPE type, AbstractMob* target)
     this->type = type;
     this->target = target;
 };
-AbstractAiBehavior::~AbstractAiBehavior()
-{
-
-};
 BEHAIVIORTYPE AbstractAiBehavior::getBehaiviorType()
 {
     return type;
@@ -25,3 +21,7 @@ AbstractMob* AbstractAiBehavior::getTarget()
 {
     return target;
 };
+AbstractMob* AbstractAiBehavior::getOwn()
+{
+    return own;
+}

@@ -3,7 +3,7 @@
 
 #include "./AbstractCollisionableEntity.hpp"
 
-class LivingEntity : AbstractCollisionableEntity
+class LivingEntity : public AbstractCollisionableEntity
 {
 private:
     int maxlife;

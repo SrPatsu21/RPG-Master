@@ -1,4 +1,5 @@
 #include "Vec2Delta.hpp"
+#include "./../random/Random.hpp"
 
 Vec2Delta::Vec2Delta(float delta, float scale)
 {
@@ -42,4 +43,8 @@ void Vec2Delta::vecNormalMoviClac(Vec2* vec2)
 Vec2Delta* Vec2Delta::clone()
 {
     return new Vec2Delta(std::acos(this->x), this->scale);
+};
+void Vec2Delta::randDirection()
+{
+    setDelta(Random::getRandom());
 };
