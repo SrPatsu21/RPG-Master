@@ -15,7 +15,7 @@ HitBox* AbstractCollisionableEntity::getHitBox()
 };
 void AbstractCollisionableEntity::setPosition(double x, double y)
 {
-    this->hitbox->getPos()->setPos(x, y);
+    this->hitbox->setPos(x, y);
 };
 Vec2* AbstractCollisionableEntity::getPosition()
 {

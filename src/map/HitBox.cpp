@@ -3,11 +3,11 @@
 //creat new Vec2 objects
 HitBox::HitBox(double pos_x, double pos_y, double x0, double y0, double x1, double y1, float direction, float speed)
 {
-    HitBox(new Vec2(pos_x, pos_y), new Vec2(x0, y0), new Vec2(x1, y1), new Vec2Delta(direction, speed));
+    HitBox(pos_x, pos_y, new Vec2(x0, y0), new Vec2(x1, y1), new Vec2Delta(direction, speed));
 };
-HitBox::HitBox(Vec2* pos, Vec2* v0, Vec2* v1, Vec2Delta* direction)
+HitBox::HitBox(double pos_x, double pos_y, Vec2* v0, Vec2* v1, Vec2Delta* direction)
+:Vec2(pos_x, pos_y)
 {
-    this->pos = pos;
     this->edge0 = v0;
     this->edge1 = v1;
     this->direction = direction;
@@ -22,34 +22,23 @@ Vec2* HitBox::getEdgeFinal()
 };
 Vec2* HitBox::getPos()
 {
-    return this->pos;
-};
-// bool HitBox::isColiding(Vec2* vec2)
-// {
-//     return isColiding(vec2->getX(), vec2->getY());
-// };
-// bool HitBox::isColiding(double x, double y)
-// {
-//     if (getEdgeInitial()->getX() > x && getEdgeFinal()->getX() < x)
-//     {
-//         if (getEdgeInitial()->getY() > y && getEdgeFinal()->getY() < y)
-//         {
-//                 return true;
-//         }
-//     }
-//     return false;
-// };
+    return ((Vec2*)this);
+}
 Vec2Delta* HitBox::getDirection()
 {
     return this->direction;
 };
-//you need to set the Own
-HitBox* HitBox::clone()
+Vec2* HitBox::clone()
+{
+    return new Vec2(getX(), getY());
+};
+HitBox* HitBox::cloneHitbox()
 {
     return new HitBox(
-        this->getPos()->clone(),
-        this->getEdgeInitial()->clone(),
-        this->getEdgeFinal()->clone(),
-        this->getDirection()->clone()
-        );
+    getX(),
+    getY(),
+    getEdgeInitial()->clone(),
+    getEdgeFinal()->clone(),
+    getDirection()->clone()
+    );
 };

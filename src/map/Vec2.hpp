@@ -17,6 +17,6 @@ public:
     void moveY(double distance);
     void moveXY(double x, double y);
     void setPos(double x, double y);
-    Vec2* clone();
+    virtual Vec2* clone();
 };
 #endif
