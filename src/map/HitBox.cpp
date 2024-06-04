@@ -32,6 +32,10 @@ Vec2* HitBox::clone()
 {
     return new Vec2(getX(), getY());
 };
+double distanceBetween(HitBox* second_hitbox)
+{
+    
+};
 HitBox* HitBox::cloneHitbox()
 {
     return new HitBox(

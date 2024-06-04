@@ -17,7 +17,14 @@ void AtackAnyColseBehaiver::behavior()
         getOwn()->move();
     }else
     {
+        //TODO verify the distance
+        if (getOwn()->getHitBox())
+        {
+            /* code */
+        }
+        
         getOwn()->walk(getTarget()->getPosition());
+
     }
     
 };

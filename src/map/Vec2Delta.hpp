@@ -1,7 +1,6 @@
 #ifndef VEC2DELTA_HPP
 #define VEC2DELTA_HPP
 
-#include <cmath>
 #include "Vec2.hpp"
 
 class Vec2Delta

@@ -1,6 +1,8 @@
 #ifndef VEC2_HPP
 #define VEC2_HPP
 
+#include <cmath>
+
 class Vec2
 {
 private:
@@ -17,6 +19,7 @@ public:
     void moveY(double distance);
     void moveXY(double x, double y);
     void setPos(double x, double y);
+    double distanceBetween(Vec2* second_vec2);
     virtual Vec2* clone();
 };
 #endif

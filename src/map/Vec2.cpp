@@ -44,7 +44,10 @@ void Vec2::setPos(double x, double y)
     setX(x);
     setY(y);
 };
-
+double Vec2::distanceBetween(Vec2* second_vec2)
+{
+    return std::abs(x-second_vec2->getX())+std::abs(y-second_vec2->getY());
+};
 Vec2* Vec2::clone()
 {
     return new Vec2(this->x, this->y);

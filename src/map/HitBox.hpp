@@ -20,6 +20,7 @@ public:
     Vec2* getPos();
     Vec2Delta* getDirection();
     Vec2* clone();
+    double distanceBetween(HitBox* second_hitbox);
     HitBox* cloneHitbox();
 };
 #endif
