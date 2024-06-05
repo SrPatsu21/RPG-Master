@@ -17,14 +17,15 @@ void AtackAnyColseBehaiver::behavior()
         getOwn()->move();
     }else
     {
-        //TODO verify the distance
-        if (getOwn()->getHitBox())
+        //* tg = y/x
+        //* arctan = delta
+        getOwn()->setDirection(std::atan((getTarget()->getHitBox()->getY()-getOwn()->getHitBox()->getY())/(getTarget()->getHitBox()->getX()-getOwn()->getHitBox()->getX())));
+        if (getOwn()->getHitBox()->distanceBetween(getTarget()->getHitBox()->getPos()) > getOwn()->getRange())
         {
-            /* code */
+            getOwn()->move();
+        }else
+        {
+            getOwn()->atack();
         }
-        
-        getOwn()->walk(getTarget()->getPosition());
-
     }
-    
 };

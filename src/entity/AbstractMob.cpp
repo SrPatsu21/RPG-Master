@@ -69,7 +69,7 @@ void AbstractMob::move()
 {
     LivingEntity::move();
 };
-void AbstractMob::walk(Vec2 target)
+void AbstractMob::walk(Vec2* target)
 {
 
 };

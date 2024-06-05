@@ -1,9 +1,11 @@
 #include "./LivingEntity.hpp"
 
-LivingEntity::LivingEntity(HitBox* hitbox, int maxlife)
+LivingEntity::LivingEntity(HitBox* hitbox, int maxlife,  float range)
 : AbstractCollisionableEntity(hitbox)
 {
     this->maxlife = maxlife;
+    this->life = maxlife;
+    this->range;
 }
 LivingEntity::~LivingEntity()
 {
@@ -36,6 +38,14 @@ void LivingEntity::setDamage(float damage)
 float LivingEntity::getDamage()
 {
     return damage;
+};
+void LivingEntity::setRange(float range)
+{
+    this->range = range;
+};
+float LivingEntity::getRange()
+{
+    return range;
 };
 void LivingEntity::move()
 {

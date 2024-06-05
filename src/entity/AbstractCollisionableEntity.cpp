@@ -25,6 +25,10 @@ void AbstractCollisionableEntity::setDirection(float direction, float scale)
 {
     this->hitbox->getDirection()->setDeltaScale(direction, scale);
 };
+void AbstractCollisionableEntity::setDirection(float direction)
+{
+    this->hitbox->getDirection()->setDelta(direction);
+};
 Vec2Delta* AbstractCollisionableEntity::getDirection()
 {
     return this->hitbox->getDirection();

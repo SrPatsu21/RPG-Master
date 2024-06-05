@@ -19,7 +19,8 @@ public:
     void moveY(double distance);
     void moveXY(double x, double y);
     void setPos(double x, double y);
-    double distanceBetween(Vec2* second_vec2);
+    virtual double distanceBetween(Vec2* second_vec2);
+    static double distanceBetween2(Vec2* primary_vec2, Vec2* second_vec2);
     virtual Vec2* clone();
 };
 #endif

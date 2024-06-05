@@ -32,17 +32,25 @@ Vec2* HitBox::clone()
 {
     return new Vec2(getX(), getY());
 };
-double distanceBetween(HitBox* second_hitbox)
+double HitBox::distanceBetween(Vec2* second_vec2)
 {
-    
+    return std::abs(getPos()->getX()-second_vec2->getX())+std::abs(getPos()->getY()-second_vec2->getY());
+};
+double HitBox::distanceBetween(HitBox* second_hitbox)
+{
+    double d1 = distanceBetween2(getPos(), second_hitbox->getPos());
+    double d2 = distanceBetween2(getEdgeInitial(), second_hitbox->getEdgeInitial());
+    double d3 = distanceBetween2(getEdgeFinal(), second_hitbox->getEdgeFinal());
+    double d4 = distanceBetween2(getEdgeInitial(), second_hitbox->getEdgeFinal());
+    return std::fmin(std::fmin(d1, d4), std::fmin(d2, d3));
 };
 HitBox* HitBox::cloneHitbox()
 {
     return new HitBox(
-    getX(),
-    getY(),
-    getEdgeInitial()->clone(),
-    getEdgeFinal()->clone(),
-    getDirection()->clone()
+        getX(),
+        getY(),
+        getEdgeInitial()->clone(),
+        getEdgeFinal()->clone(),
+        getDirection()->clone()
     );
 };

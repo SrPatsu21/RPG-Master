@@ -48,6 +48,10 @@ double Vec2::distanceBetween(Vec2* second_vec2)
 {
     return std::abs(x-second_vec2->getX())+std::abs(y-second_vec2->getY());
 };
+double Vec2::distanceBetween2(Vec2* primary_vec2, Vec2* second_vec2)
+{
+    return std::abs(primary_vec2->getX()-second_vec2->getX())+std::abs(primary_vec2->getY()-second_vec2->getY());
+};
 Vec2* Vec2::clone()
 {
     return new Vec2(this->x, this->y);
