@@ -61,7 +61,7 @@ void AbstractMob::receiveDamage(AbstractMob* Enemy)
 {
 
 };
-void AbstractMob::atack()
+void AbstractMob::attack()
 {
 
 };

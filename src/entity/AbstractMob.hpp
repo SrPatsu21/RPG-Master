@@ -23,7 +23,7 @@ public:
     virtual void removeBuff(BuffTypes type);
     virtual void clearBuff();
     virtual void receiveDamage(AbstractMob* Enemy);
-    virtual void atack();
+    virtual void attack();
     virtual void move();
     virtual void heal(int amount);
     virtual void walk(Vec2* target);
