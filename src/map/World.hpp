@@ -10,19 +10,20 @@ private:
     int max_mobs;
     int max_projectiles;
     int max_players;
-
+    //TODO abstract projectiles
     std::list<HitBox*> projectiles;
-    std::list<HitBox*> mobs;
+    std::list<AbstractMob*> mobs;
     //? who is player
     std::list<HitBox*> players;
 protected:
     void setMaxMobs(int max_mobs);
     void setMaxProjectiles(int max_projectiles);
     void setMaxPlayers(int max_players);
-    //*add new entity
-    void addMob(AbstractMob* mob);
     //?add new player
     void addPlayers(HitBox* hitbox);
+    //*tick every entity
+    void gametick();
+
 public:
     World(int max_mobs = 120, int max_projectiles = 500, int max_player = 20);
     ~World();
@@ -32,8 +33,9 @@ public:
     //*new projectile on game
     //TODO create a projectile
     void addProjectiles(HitBox* hitbox);
-    //*tick every entity
-    void gametick();
+    //*add new entity
+    void addMob(AbstractMob* mob);
+
 };
 
 World::World(int max_mobs, int max_projectiles, int max_players)
@@ -44,18 +46,25 @@ World::World(int max_mobs, int max_projectiles, int max_players)
 };
 World::~World()
 {
+    //*delete projectiles
+    //TODO abstract projectile
     std::list<HitBox*>::iterator it;
     for (it = projectiles.begin(); projectiles.end() != it; ++it)
     {
         delete (*it);
     }
     projectiles.clear();
-    for (it = mobs.begin(); mobs.end() != it; ++it)
+
+    //*delete mobs
+    std::list<AbstractMob*>::iterator imobs;
+    for (imobs = mobs.begin(); mobs.end() != imobs; ++imobs)
     {
-        delete (*it);
+        delete (*imobs);
     }
     mobs.clear();
+
     //? who is player
+    //TODO define player and delete
     for (it = players.begin(); players.end() != it; ++it)
     {
         delete (*it);
@@ -67,21 +76,7 @@ void World::addMob(AbstractMob* mob)
 {
     if (mobs.size() < max_mobs)
     {
-        mobs.push_back((mob->getHitBox()));
-    }
-};
-void World::addProjectiles(HitBox* hitbox)
-{
-    if (projectiles.size() < max_projectiles)
-    {
-        projectiles.push_back(hitbox);
-    }
-};
-void World::addPlayers(HitBox* hitbox)
-{
-    if (projectiles.size() < max_projectiles)
-    {
-        projectiles.push_back(hitbox);
+        mobs.push_back((mob));
     }
 };
 void World::gametick()
