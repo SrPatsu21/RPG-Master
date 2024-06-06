@@ -1,7 +1,6 @@
 #ifndef ABSTRACTMOB_HPP
 #define ABSTRACTMOB_HPP
 
-
 #include <list>
 #include "./LivingEntity.hpp"
 #include "./buff/Buffs.hpp"
@@ -23,6 +22,7 @@ public:
     virtual void removeBuff(BuffTypes type);
     virtual void clearBuff();
     virtual void receiveDamage(AbstractMob* Enemy);
+    //* creat a projectile to deal damage
     virtual void attack();
     virtual void move();
     virtual void heal(int amount);
