@@ -1,7 +1,7 @@
 #include "AttackAnyCloseBehavior.hpp"
 
 AttackAnyCloseBehavior::AttackAnyCloseBehavior(AbstractMob* target = NULL)
-: AbstractAiBehavior(BEHAIVIORTYPE::AtackAnyColseBehaiver, target)
+: AbstractAiBehavior(BEHAVIORTYPE::AttackAnyCloseBehavior, target)
 {
 
 };
@@ -10,12 +10,8 @@ void AttackAnyCloseBehavior::behavior()
 {
     //TODO function to found a target
 
-    //* if null target
+    //* if not null target
     if (getTarget() != NULL)
-    {
-        getOwn()->getDirection()->randDirection();
-        getOwn()->move();
-    }else
     {
         //* tg = y/x
         //* arctan = delta
@@ -27,5 +23,10 @@ void AttackAnyCloseBehavior::behavior()
         {
             getOwn()->attack();
         }
+    }else
+    {
+        //randon walk
+        getOwn()->getDirection()->randDirection();
+        getOwn()->move();
     }
 };
