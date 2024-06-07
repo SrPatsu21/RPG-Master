@@ -11,10 +11,10 @@ private:
     int max_projectiles;
     int max_players;
     //TODO abstract projectiles
-    std::list<HitBox*> projectiles;
+    std::list<AbstractCollisionableEntity*> projectiles;
     std::list<AbstractMob*> mobs;
     //? who is player
-    std::list<HitBox*> players;
+    std::list<AbstractCollisionableEntity*> players;
 protected:
     void setMaxMobs(int max_mobs);
     void setMaxProjectiles(int max_projectiles);
@@ -48,10 +48,10 @@ World::~World()
 {
     //*delete projectiles
     //TODO abstract projectile
-    std::list<HitBox*>::iterator it;
-    for (it = projectiles.begin(); projectiles.end() != it; ++it)
+    std::list<AbstractCollisionableEntity*>::iterator iprojectiles;
+    for (iprojectiles = projectiles.begin(); projectiles.end() != iprojectiles; ++iprojectiles)
     {
-        delete (*it);
+        delete (*iprojectiles);
     }
     projectiles.clear();
 
@@ -64,10 +64,10 @@ World::~World()
     mobs.clear();
 
     //? who is player
-    //TODO define player and delete
-    for (it = players.begin(); players.end() != it; ++it)
+    std::list<AbstractCollisionableEntity*>::iterator iplayers;
+    for (iplayers = players.begin(); players.end() != iplayers; ++iplayers)
     {
-        delete (*it);
+        delete (*iplayers);
     }
     players.clear();
 };
@@ -81,8 +81,19 @@ void World::addMob(AbstractMob* mob)
 };
 void World::gametick()
 {
-    //TODO verify conllision
-    //TODO tick every one
     //TODO remove deads
+    std::list<AbstractMob*>::iterator imobs;
+    for (imobs = mobs.begin(); mobs.end() != imobs; ++imobs)
+    {
+        if (!(*imobs)->isToDiscard())
+        {
+            //TODO verify conllision
+            //TODO tick every one
+        }else
+        {
+            imobs = mobs.erase(imobs);
+        }
+    }
+    mobs.clear();
 };
 #endif

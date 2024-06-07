@@ -33,6 +33,10 @@ Vec2Delta* AbstractCollisionableEntity::getDirection()
 {
     return this->hitbox->getDirection();
 };
+bool AbstractCollisionableEntity::isToDiscard()
+{
+    return discard;
+};
 void AbstractCollisionableEntity::move()
 {
 };

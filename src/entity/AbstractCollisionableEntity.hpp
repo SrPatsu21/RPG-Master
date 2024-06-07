@@ -9,6 +9,7 @@ class AbstractCollisionableEntity : public Entity
 {
 private:
     HitBox* hitbox;
+    bool discard; 
 public:
     AbstractCollisionableEntity(HitBox* hitbox);
     ~AbstractCollisionableEntity();
@@ -18,6 +19,7 @@ public:
     virtual void setDirection(float direction);
     virtual void setDirection(float direction, float scale);
     Vec2Delta* getDirection();
+    bool isToDiscard();
     virtual void move();
     virtual void tick();
 };

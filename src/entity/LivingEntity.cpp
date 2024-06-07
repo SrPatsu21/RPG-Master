@@ -5,7 +5,7 @@ LivingEntity::LivingEntity(HitBox* hitbox, int maxlife,  float range)
 {
     this->maxlife = maxlife;
     this->life = maxlife;
-    this->range;
+    this->range = range;
 }
 LivingEntity::~LivingEntity()
 {
