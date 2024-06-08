@@ -53,5 +53,4 @@ void LivingEntity::move()
 };
 void LivingEntity::tick()
 {
-    AbstractCollisionableEntity::tick();
 };

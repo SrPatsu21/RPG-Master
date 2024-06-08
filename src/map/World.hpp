@@ -3,6 +3,7 @@
 
 #include <list>
 #include "./../entity/AbstractMob.hpp"
+#include "./../entity/AbstractProjectile.hpp"
 
 class World
 {
@@ -11,7 +12,7 @@ private:
     int max_projectiles;
     int max_players;
     //TODO abstract projectiles
-    std::list<AbstractCollisionableEntity*> projectiles;
+    std::list<AbstractProjectile*> projectiles;
     std::list<AbstractMob*> mobs;
     //? who is player
     std::list<AbstractCollisionableEntity*> players;
@@ -31,8 +32,7 @@ public:
     int getMaxProjectiles();
     int getMaxPLayers();
     //*new projectile on game
-    //TODO create a projectile
-    void addProjectiles(HitBox* hitbox);
+    void addProjectiles(AbstractProjectile* projectile);
     //*add new entity
     void addMob(AbstractMob* mob);
     void verifyCollision();
@@ -48,7 +48,7 @@ World::~World()
 {
     //*delete projectiles
     //TODO abstract projectile
-    std::list<AbstractCollisionableEntity*>::iterator iprojectiles;
+    std::list<AbstractProjectile*>::iterator iprojectiles;
     for (iprojectiles = projectiles.begin(); projectiles.end() != iprojectiles; ++iprojectiles)
     {
         delete (*iprojectiles);
@@ -71,7 +71,13 @@ World::~World()
     }
     players.clear();
 };
-
+void World::addProjectiles(AbstractProjectile* projectile)
+{
+    if (projectiles.size() < max_projectiles)
+    {
+        projectiles.push_back((projectile));
+    }
+};
 void World::addMob(AbstractMob* mob)
 {
     if (mobs.size() < max_mobs)
@@ -101,7 +107,7 @@ void World::gametick()
 void World::verifyCollision()
 {
     std::list<AbstractMob*>::iterator imobs;
-    std::list<AbstractCollisionableEntity*>::iterator iprojectiles;
+    std::list<AbstractProjectile*>::iterator iprojectiles;
     for (imobs = mobs.begin(); mobs.end() != imobs; ++imobs)
     {
         for (iprojectiles = projectiles.begin(); projectiles.end() != iprojectiles; ++iprojectiles)
