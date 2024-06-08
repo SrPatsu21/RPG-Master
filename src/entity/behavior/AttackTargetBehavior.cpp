@@ -1,18 +1,15 @@
 #include "AttackTargetBehavior.hpp"
 
-AttackTargetBehavior::AttackTargetBehavior(AbstractMob* target = NULL)
-: AbstractAiBehavior(BEHAVIORTYPE::AttackTargetBehavior, target)
+AttackTargetBehavior::AttackTargetBehavior(AbstractMob* own, AbstractMob* target)
+: AbstractAiBehavior(own, BEHAVIORTYPE::ATTACK_TARGET_BEHAVIOR, target)
 {
 
 };
 
 void AttackTargetBehavior::behavior()
 {
-    //* if null target
+    //* if not null target
     if (getTarget() != NULL)
-    {
-        this = new NormalBehavior;
-    }else
     {
         //* tg = y/x
         //* arctan = delta
@@ -24,5 +21,8 @@ void AttackTargetBehavior::behavior()
         {
             getOwn()->attack();
         }
+    }else
+    {
+        getOwn()->setBehavior(new NormalBehavior(getOwn(), getTarget()));
     }
 };

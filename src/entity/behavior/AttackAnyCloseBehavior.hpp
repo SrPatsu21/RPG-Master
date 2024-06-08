@@ -7,7 +7,7 @@ class AttackAnyCloseBehavior : public AbstractAiBehavior
 {
 private:
 public:
-    AttackAnyCloseBehavior(AbstractMob* target = NULL);
+    AttackAnyCloseBehavior(AbstractMob* own, AbstractMob* target = NULL);
 
     void behavior();
 };

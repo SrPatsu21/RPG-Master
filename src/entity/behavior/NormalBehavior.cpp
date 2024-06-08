@@ -1,7 +1,7 @@
 #include "NormalBehavior.hpp"
 
-NormalBehavior::NormalBehavior(AbstractMob* target = NULL)
-: AbstractAiBehavior(BEHAVIORTYPE::NormalBehavior, target)
+NormalBehavior::NormalBehavior(AbstractMob* own, AbstractMob* target)
+: AbstractAiBehavior(own,BEHAVIORTYPE::NORMAL_BEHAVIOR, target)
 {
 
 };

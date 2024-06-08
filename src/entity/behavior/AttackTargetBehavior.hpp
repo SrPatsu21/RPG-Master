@@ -6,9 +6,8 @@
 
 class AttackTargetBehavior : public AbstractAiBehavior
 {
-private:
 public:
-    AttackTargetBehavior(AbstractMob* target = NULL);
+    AttackTargetBehavior(AbstractMob* own, AbstractMob* target = NULL);
 
     void behavior();
 };

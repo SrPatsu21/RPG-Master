@@ -5,9 +5,8 @@
 
 class NormalBehavior : public AbstractAiBehavior
 {
-private:
 public:
-    NormalBehavior(AbstractMob* target = NULL);
+    NormalBehavior(AbstractMob* own, AbstractMob* target = NULL);
 
     void behavior();
 };

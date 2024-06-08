@@ -1,9 +1,9 @@
 #include "AbstractMob.hpp"
 
-AbstractMob::AbstractMob(HitBox* hitbox, int maxlife)
+AbstractMob::AbstractMob(HitBox* hitbox, int maxlife, AbstractAiBehavior* behavior)
 : LivingEntity(hitbox, maxlife)
 {
-
+    this->behavior = behavior;
 };
 AbstractMob::~AbstractMob()
 {
@@ -56,6 +56,16 @@ void AbstractMob::removeBuff(BuffTypes type)
 void AbstractMob::clearBuff()
 {
     buffs.clear();
+};
+
+void AbstractMob::setBehavior(AbstractAiBehavior* behavior)
+{
+    delete this->behavior;
+    this->behavior = behavior;
+};
+AbstractAiBehavior* AbstractMob::getBehavior()
+{
+    return behavior;
 };
 void AbstractMob::receiveDamage(AbstractMob* Enemy)
 {

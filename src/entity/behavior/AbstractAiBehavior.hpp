@@ -5,10 +5,10 @@
 
 enum BEHAVIORTYPE
 {
-    NormalBehavior,
-    FleeBehavior,
-    AttackTargetBehavior,
-    AttackAnyCloseBehavior
+    NORMAL_BEHAVIOR,
+    FLEE_BEHAVIOR,
+    ATTACK_TARGET_BEHAVIOR,
+    ATTACK_ANY_CLOSE_BEHAVIOR
 };
 
 class AbstractAiBehavior
@@ -18,7 +18,7 @@ private:
     AbstractMob* own;
     AbstractMob* target;
 protected:
-    AbstractAiBehavior(BEHAVIORTYPE type, AbstractMob* target = NULL);
+    AbstractAiBehavior( AbstractMob* own, BEHAVIORTYPE type, AbstractMob* target = NULL);
 public:
     BEHAVIORTYPE getBehaiviorType();
     void setTarget(AbstractMob* target);
