@@ -35,7 +35,7 @@ public:
     void addProjectiles(HitBox* hitbox);
     //*add new entity
     void addMob(AbstractMob* mob);
-
+    void verifyCollision();
 };
 
 World::World(int max_mobs, int max_projectiles, int max_players)
@@ -88,6 +88,7 @@ void World::gametick()
         if (!(*imobs)->isToDiscard())
         {
             //TODO verify conllision
+            
             //TODO tick every one
         }else
         {
@@ -96,4 +97,23 @@ void World::gametick()
     }
     mobs.clear();
 };
+
+void World::verifyCollision()
+{
+    std::list<AbstractMob*>::iterator imobs;
+    std::list<AbstractCollisionableEntity*>::iterator iprojectiles;
+    for (imobs = mobs.begin(); mobs.end() != imobs; ++imobs)
+    {
+        for (iprojectiles = projectiles.begin(); projectiles.end() != iprojectiles; ++iprojectiles)
+        {
+            //TODO verify collision
+            if(!(*imobs)->getHitBox()->isColosionWithOther((*iprojectiles)->getHitBox()))
+            {
+                //TODO create projectile
+            };
+
+        }
+    }  
+};
+
 #endif
