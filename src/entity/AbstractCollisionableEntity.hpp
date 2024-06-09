@@ -9,15 +9,18 @@ class AbstractCollisionableEntity : public Entity
 {
 private:
     HitBox* hitbox;
+protected:
+    bool discard; 
 public:
     AbstractCollisionableEntity(HitBox* hitbox);
     ~AbstractCollisionableEntity();
     HitBox* getHitBox();
-    virtual void setPosition(double x, double y);
     Vec2* getPosition();
+    Vec2Delta* getDirection();
+    bool isToDiscard();
     virtual void setDirection(float direction);
     virtual void setDirection(float direction, float scale);
-    Vec2Delta* getDirection();
+    virtual void setPosition(double x, double y);
     virtual void move();
     virtual void tick();
 };

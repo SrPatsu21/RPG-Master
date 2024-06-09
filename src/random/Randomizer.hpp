@@ -15,14 +15,4 @@ public:
 friend class Random;
 };
 
-Randomizer::Randomizer()
-{
-    setRandom();
-};
-void Randomizer::setRandom()
-{
-    srand(time(NULL));
-    this->random = rand();
-};
-
 #endif

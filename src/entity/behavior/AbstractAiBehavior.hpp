@@ -3,24 +3,24 @@
 
 #include "./../AbstractMob.hpp"
 
-enum BEHAIVIORTYPE
+enum BEHAVIORTYPE
 {
-    NormalBehaiver,
-    FleeBehavior,
-    AtackTargetBehaiver,
-    AtackAnyColseBehaiver
+    NORMAL_BEHAVIOR,
+    FLEE_BEHAVIOR,
+    ATTACK_TARGET_BEHAVIOR,
+    ATTACK_ANY_CLOSE_BEHAVIOR
 };
 
 class AbstractAiBehavior
 {
 private:
-    BEHAIVIORTYPE type;
+    BEHAVIORTYPE type;
     AbstractMob* own;
     AbstractMob* target;
 protected:
-    AbstractAiBehavior(BEHAIVIORTYPE type, AbstractMob* target = NULL);
+    AbstractAiBehavior( AbstractMob* own, BEHAVIORTYPE type, AbstractMob* target = NULL);
 public:
-    BEHAIVIORTYPE getBehaiviorType();
+    BEHAVIORTYPE getBehaiviorType();
     void setTarget(AbstractMob* target);
     void loseTarget();
     AbstractMob* getTarget();

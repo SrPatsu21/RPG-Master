@@ -1,5 +1,4 @@
 #include "Vec2Delta.hpp"
-#include "./../random/Random.hpp"
 
 Vec2Delta::Vec2Delta(float delta, float scale)
 {

@@ -34,15 +34,26 @@ Vec2* HitBox::clone()
 };
 double HitBox::distanceBetween(Vec2* second_vec2)
 {
-    return std::abs(getPos()->getX()-second_vec2->getX())+std::abs(getPos()->getY()-second_vec2->getY());
+    return std::sqrt((std::pow(getPos()->getX()-second_vec2->getX(), 2)+std::pow(getPos()->getY()-second_vec2->getY(), 2)));
 };
-double HitBox::distanceBetween(HitBox* second_hitbox)
+bool HitBox::isColosionWithOther(HitBox* box)
 {
-    double d1 = distanceBetween2(getPos(), second_hitbox->getPos());
-    double d2 = distanceBetween2(getEdgeInitial(), second_hitbox->getEdgeInitial());
-    double d3 = distanceBetween2(getEdgeFinal(), second_hitbox->getEdgeFinal());
-    double d4 = distanceBetween2(getEdgeInitial(), second_hitbox->getEdgeFinal());
-    return std::fmin(std::fmin(d1, d4), std::fmin(d2, d3));
+    //* verify if the distance in x is not bigger than the boxes size
+    if (std::abs(getPos()->getX() - box->getPos()->getX()) > (getEdgeInitial()->getX()*(-1) + getEdgeFinal()->getX() + box->getEdgeInitial()->getX()*(-1) + box->getEdgeFinal()->getX()))
+    {
+        return false;
+    }else
+    {
+        if ((getPos()->getY() - box->getPos()->getY()) > (getEdgeInitial()->getY()*(-1) + getEdgeFinal()->getY() + box->getEdgeInitial()->getY()*(-1) + box->getEdgeFinal()->getY()))
+        {
+            return false;
+        }else
+        {
+            return true;
+        }
+        
+    }
+    
 };
 HitBox* HitBox::cloneHitbox()
 {

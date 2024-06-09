@@ -1,11 +1,11 @@
 #include "AbstractAiBehavior.hpp"
 
-AbstractAiBehavior::AbstractAiBehavior(BEHAIVIORTYPE type, AbstractMob* target)
+AbstractAiBehavior::AbstractAiBehavior(AbstractMob* own, BEHAVIORTYPE type, AbstractMob* target)
 {
     this->type = type;
     this->target = target;
 };
-BEHAIVIORTYPE AbstractAiBehavior::getBehaiviorType()
+BEHAVIORTYPE AbstractAiBehavior::getBehaiviorType()
 {
     return type;
 };
