@@ -1,15 +1,13 @@
-#include "AttackAnyCloseBehavior.hpp"
+#include "AttackTargetBehavior.hpp"
 
-AttackAnyCloseBehavior::AttackAnyCloseBehavior(AbstractMob* own, AbstractMob* target)
-: AbstractAiBehavior(own ,BEHAVIORTYPE::ATTACK_ANY_CLOSE_BEHAVIOR, target)
+AttackTargetBehavior::AttackTargetBehavior(AbstractMob* own, AbstractMob* target)
+: AbstractAiBehavior(own, BEHAVIORTYPE::ATTACK_TARGET_BEHAVIOR, target)
 {
 
 };
 
-void AttackAnyCloseBehavior::behavior()
+void AttackTargetBehavior::behavior()
 {
-    //TODO function to found a target
-
     //* if not null target
     if (getTarget() != NULL)
     {
@@ -25,8 +23,6 @@ void AttackAnyCloseBehavior::behavior()
         }
     }else
     {
-        //randon walk
-        getOwn()->getDirection()->randDirection();
-        getOwn()->move();
+        getOwn()->setBehavior(new NormalBehavior(getOwn(), getTarget()));
     }
 };

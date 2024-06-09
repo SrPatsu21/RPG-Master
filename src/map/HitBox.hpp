@@ -8,7 +8,9 @@
 class HitBox : public Vec2
 {
 private:
+    //! is just (-) negative values or 0
     Vec2* edge0;
+    //! is just (+) positive values or 0
     Vec2* edge1;
     Vec2Delta* direction;
 public:
@@ -21,7 +23,7 @@ public:
     Vec2Delta* getDirection();
     Vec2* clone();
     virtual double distanceBetween(Vec2* second_vec2);
-    virtual double distanceBetween(HitBox* second_hitbox);
+    virtual bool isColosionWithOther(HitBox* box);
     HitBox* cloneHitbox();
 };
 #endif
