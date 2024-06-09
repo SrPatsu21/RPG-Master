@@ -4,33 +4,28 @@
 #include <list>
 #include "./../entity/AbstractMob.hpp"
 #include "./../entity/AbstractProjectile.hpp"
+#include "./../entity/Character.hpp"
 
 class World
 {
 private:
     int max_mobs;
     int max_projectiles;
-    int max_players;
     //TODO abstract projectiles
     std::list<AbstractProjectile*> projectiles;
     std::list<AbstractMob*> mobs;
-    //? who is player
-    std::list<AbstractCollisionableEntity*> players;
+    Character* player;
 protected:
     void setMaxMobs(int max_mobs);
     void setMaxProjectiles(int max_projectiles);
-    void setMaxPlayers(int max_players);
-    //?add new player
-    void addPlayers(HitBox* hitbox);
     //*tick every entity
     void gametick();
 
 public:
-    World(int max_mobs = 120, int max_projectiles = 500, int max_player = 20);
+    World(    Character* player, int max_mobs = 120, int max_projectiles = 500);
     ~World();
     int getMaxMob();
     int getMaxProjectiles();
-    int getMaxPLayers();
     //*new projectile on game
     void addProjectiles(AbstractProjectile* projectile);
     //*add new entity
@@ -38,11 +33,10 @@ public:
     void verifyCollision();
 };
 
-World::World(int max_mobs, int max_projectiles, int max_players)
+World::World(Character* player, int max_mobs, int max_projectiles)
 {
     this->max_mobs = max_mobs;
     this->max_projectiles = max_projectiles;
-    this->max_players = max_players;
 };
 World::~World()
 {
@@ -62,14 +56,9 @@ World::~World()
         delete (*imobs);
     }
     mobs.clear();
+    //* player
+    delete player;
 
-    //? who is player
-    std::list<AbstractCollisionableEntity*>::iterator iplayers;
-    for (iplayers = players.begin(); players.end() != iplayers; ++iplayers)
-    {
-        delete (*iplayers);
-    }
-    players.clear();
 };
 void World::addProjectiles(AbstractProjectile* projectile)
 {
@@ -108,18 +97,20 @@ void World::verifyCollision()
 {
     std::list<AbstractMob*>::iterator imobs;
     std::list<AbstractProjectile*>::iterator iprojectiles;
-    for (imobs = mobs.begin(); mobs.end() != imobs; ++imobs)
+    for (iprojectiles = projectiles.begin(); projectiles.end() != iprojectiles; ++iprojectiles)
     {
-        for (iprojectiles = projectiles.begin(); projectiles.end() != iprojectiles; ++iprojectiles)
+        if(player->getHitBox()->isColosionWithOther((*iprojectiles)->getHitBox()))
         {
-            //TODO verify collision
-            if(!(*imobs)->getHitBox()->isColosionWithOther((*iprojectiles)->getHitBox()))
-            {
-                //TODO create projectile
-            };
-
+            (*iprojectiles)->onCollision(player);
         }
-    }  
+        for (imobs = mobs.begin(); mobs.end() != imobs; ++imobs)
+        {  
+            if((*imobs)->getHitBox()->isColosionWithOther((*iprojectiles)->getHitBox()))
+            {
+                (*iprojectiles)->onCollision(*imobs); 
+            };
+        }
+    } 
 };
 
 #endif

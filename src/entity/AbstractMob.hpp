@@ -15,7 +15,7 @@ private:
 protected:
 static const int MAX_BUFFS = 20;
 public:
-    AbstractMob(HitBox* hitbox, int maxlife, AbstractAiBehavior* behavior);
+    AbstractMob(HitBox* hitbox, AbstractAiBehavior* behavior, int maxlife = 10, float range = 1.f, float damage = 1, int life = 10);
     ~AbstractMob();
     virtual void regenLife();
     virtual void addBuff(Buffs* buff);

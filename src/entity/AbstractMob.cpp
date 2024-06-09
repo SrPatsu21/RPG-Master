@@ -1,13 +1,18 @@
 #include "AbstractMob.hpp"
 
-AbstractMob::AbstractMob(HitBox* hitbox, int maxlife, AbstractAiBehavior* behavior)
-: LivingEntity(hitbox, maxlife)
+AbstractMob::AbstractMob(HitBox* hitbox, AbstractAiBehavior* behavior, int maxlife, float range, float damage, int life)
+: LivingEntity(hitbox, maxlife, range, damage, life)
 {
     this->behavior = behavior;
 };
 AbstractMob::~AbstractMob()
 {
-
+    std::list<Buffs*>::iterator ibuffs;
+    for (ibuffs = buffs.begin(); buffs.end() != ibuffs; ++ibuffs)
+    {
+        delete (*ibuffs);
+    }
+    delete behavior;
 };
 void AbstractMob::heal(int amount)
 {

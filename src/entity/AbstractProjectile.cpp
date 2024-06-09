@@ -5,51 +5,43 @@ AbstractProjectile::AbstractProjectile(HitBox* hitbox, AbstractMob* owner, float
 {
     this->owner = owner;
     this->damage = damage;
-    this->lifetime = lifetime
+    this->lifetime = lifetime;
 };
-void AbstractProjectile::setOwner()
+void AbstractProjectile::setOwner(AbstractMob* owner)
 {
-
+    this->owner = owner;
 };
 AbstractMob* AbstractProjectile::getOwner()
 {
-
+    return owner;
 };
 void AbstractProjectile::setDamage(float damage)
 {
-
+    this->damage = damage;
 };
 float AbstractProjectile::getDamage()
 {
-
+    return damage;
 };
 int AbstractProjectile::getLifeTime()
 {
-
+    return lifetime;
 };
-void AbstractProjectile::onCollision()
+void AbstractProjectile::onCollision(AbstractMob* mob)
 {
 
 };
 void AbstractProjectile::setLifeTime(int lifetime)
 {
-
+    this->lifetime = lifetime;
 };
 void AbstractProjectile::setPosition(double x, double y)
 {
-
-};
-void AbstractProjectile::setDirection(float direction)
-{
-
-};
-void AbstractProjectile::setDirection(float direction, float scale)
-{
-
+    AbstractCollisionableEntity::setPosition(x, y);
 };
 void AbstractProjectile::move()
 {
-
+    AbstractCollisionableEntity::move();
 };
 void AbstractProjectile::tick()
 {
