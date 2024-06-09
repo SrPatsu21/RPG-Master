@@ -16,7 +16,7 @@ AbstractMob::~AbstractMob()
 };
 void AbstractMob::heal(int amount)
 {
-    LivingEntity::heal(amount);
+    life =(int) std::max((float)(life+std::abs(amount)), 0.f);
 };
 void AbstractMob::regenLife()
 {
@@ -72,13 +72,22 @@ AbstractAiBehavior* AbstractMob::getBehavior()
 {
     return behavior;
 };
-void AbstractMob::receiveDamage(AbstractMob* Enemy)
+void AbstractMob::receiveDamage(AbstractMob* Enemy, float damage)
 {
-
+    life =(int) std::max(life-std::abs(damage), 0.f);
+    if (life != 0)
+    {
+        behavior->setTarget(Enemy);
+    }else
+    {
+        discard = true;
+    }
+    
+    
 };
 void AbstractMob::attack()
 {
-
+    //TODO
 };
 void AbstractMob::move()
 {

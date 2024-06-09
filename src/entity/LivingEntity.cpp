@@ -29,10 +29,6 @@ int LivingEntity::getLife()
 {
     return life;
 };
-void LivingEntity::heal(int amount)
-{
-    life = std::min(maxlife, life+amount);
-};
 void LivingEntity::setDamage(float damage)
 {
     this->damage = damage;

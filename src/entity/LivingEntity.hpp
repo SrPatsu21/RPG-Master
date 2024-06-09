@@ -6,11 +6,12 @@
 class LivingEntity : public AbstractCollisionableEntity
 {
 private:
+
+protected:
     int maxlife;
     int life;
     float damage;
     float range;
-protected:
     virtual void setMaxLife(int maxlife);
 public:
     LivingEntity(HitBox* hitbox, int maxlife = 10, float range = 1.f, float damage = 1, int life = 10);
@@ -20,7 +21,6 @@ public:
     int getLife();
     void setRange(float range);
     float getRange();
-    virtual void heal(int amount);
     void setDamage(float damage);
     float getDamage();
     virtual void move();

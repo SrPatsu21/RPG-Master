@@ -2,6 +2,8 @@
 #define ABSTRACTMOB_HPP
 
 #include <list>
+#include <iostream>
+#include <math.h>
 #include "./LivingEntity.hpp"
 #include "./buff/Buffs.hpp"
 #include "./behavior/AbstractAiBehavior.hpp"
@@ -28,8 +30,8 @@ public:
     virtual void setBehavior(AbstractAiBehavior* behavior);
     virtual AbstractAiBehavior* getBehavior();
     //* affect by behavior
-    virtual void receiveDamage(AbstractMob* Enemy);
-    //* creat a projectile to deal damage
+    virtual void receiveDamage(AbstractMob* Enemy, float damage);
+    //TODO creat a projectile to deal damage
     virtual void attack();
     virtual void move();
     virtual void heal(int amount);
