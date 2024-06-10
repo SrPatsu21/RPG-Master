@@ -1,6 +1,7 @@
 #include "./Randomizer.hpp"
 
 Randomizer* Randomizer::randomizer_ = NULL;
+double Randomizer::random_value = 0;
 
 Randomizer::Randomizer()
 {
