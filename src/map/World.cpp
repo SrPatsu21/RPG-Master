@@ -81,13 +81,13 @@ void World::verifyCollision()
     std::list<AbstractProjectile*>::iterator iprojectiles;
     for (iprojectiles = projectiles.begin(); projectiles.end() != iprojectiles; ++iprojectiles)
     {
-        if(player->getHitBox()->isColosionWithOther((*iprojectiles)->getHitBox()))
+        if(player->getHitBox()->isCollidingWithOther((*iprojectiles)->getHitBox()))
         {
             (*iprojectiles)->onCollision(player);
         }
         for (imobs = mobs.begin(); mobs.end() != imobs; ++imobs)
         {  
-            if((*imobs)->getHitBox()->isColosionWithOther((*iprojectiles)->getHitBox()))
+            if((*imobs)->getHitBox()->isCollidingWithOther((*iprojectiles)->getHitBox()))
             {
                 (*iprojectiles)->onCollision(*imobs); 
             };
