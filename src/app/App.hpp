@@ -2,10 +2,10 @@
 #define APP_HPP
 
 #include <SFML/Graphics.hpp>
+//todo fix this include, uncommented result error
+// #include "../global.hpp"
 
-//* app consts
-unsigned int WIN_SIZE_X = 1280;
-unsigned int WIN_SIZE_Y = 720;
+#include "../map/MapRender.cpp"
 
 //todo only for "debuf"
 #include <iostream>
@@ -13,6 +13,8 @@ unsigned int WIN_SIZE_Y = 720;
 class App {
    private:
     sf::RenderWindow window;
+    sf::View view;
+    MapRender mapRender;
     void initWindow();
     void processEvents();
     void update(sf::Time deltaTime);

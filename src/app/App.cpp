@@ -1,13 +1,16 @@
 #include "App.hpp"
 
-App::App() {
+App::App() : window(sf::VideoMode(WIN_SIZE_X, WIN_SIZE_Y), "RPG-Master"), view(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(WIN_SIZE_X, WIN_SIZE_Y)) {
 }
 
 App::~App() {
 }
 
 void App::initWindow() {
-    this->window.create(sf::VideoMode(WIN_SIZE_X, WIN_SIZE_Y), "RPG-Master");
+    // this->window.create(sf::VideoMode(WIN_SIZE_X, WIN_SIZE_Y), "RPG-Master");
+    // this->view.setSize(sf::Vector2f(WIN_SIZE_X, WIN_SIZE_Y));
+    this->view.setCenter(sf::Vector2f(WIN_SIZE_X / 2, WIN_SIZE_Y / 2));
+    this->mapRender.initMapRender(this->view);
 }
 
 void App::processEvents() {
@@ -33,9 +36,13 @@ void App::processEvents() {
 }
 
 void App::update(sf::Time deltaTime) {
+    this->mapRender.updateTiles(this->view);
 }
 
 void App::render() {
+    this->mapRender.render(this->window, this->view);
+
+    this->window.display();
 }
 
 void App::cleanup() {
