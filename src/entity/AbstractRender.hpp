@@ -5,7 +5,12 @@
 
 class AbstractRender {
     private:
-        sf::Sprite sprite;
+        sf::RectangleShape sprite;
+        sf::Texture texture;
+    public:
+    AbstractRender();
+    ~AbstractRender();
+    
     
 };
 

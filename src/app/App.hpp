@@ -5,7 +5,7 @@
 //todo fix this include, uncommented result error
 // #include "../global.hpp"
 
-#include "../map/MapRender.cpp"
+#include "../map/MapRender.hpp"
 
 //todo only for "debug"
 #include <iostream>

@@ -13,7 +13,7 @@ protected:
 public:
     virtual void setPosition(double x, double y) = 0;
     virtual Vec2* getPosition() = 0;
-    virtual void setDirection(float direction);
+    virtual void setDirection(float direction) = 0;
     virtual void setDirection(float direction, float scale) = 0;
     virtual Vec2Delta* getDirection() = 0;
     virtual void move() = 0;
