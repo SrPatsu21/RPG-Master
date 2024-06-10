@@ -8,7 +8,7 @@ class FleeBehavior : public AbstractAiBehavior
 {
 private:
 public:
-    FleeBehavior(AbstractMob* own, AbstractMob* target = NULL);
+    FleeBehavior(LivingEntity* own, LivingEntity* target = NULL);
 
     void behavior();
 };

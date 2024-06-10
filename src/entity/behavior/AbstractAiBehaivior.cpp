@@ -1,6 +1,6 @@
 #include "AbstractAiBehavior.hpp"
 
-AbstractAiBehavior::AbstractAiBehavior(AbstractMob* own, BEHAVIORTYPE type, AbstractMob* target)
+AbstractAiBehavior::AbstractAiBehavior(LivingEntity* own, BEHAVIORTYPE type, LivingEntity* target)
 {
     this->type = type;
     this->target = target;
@@ -9,7 +9,7 @@ BEHAVIORTYPE AbstractAiBehavior::getBehaiviorType()
 {
     return type;
 };
-void AbstractAiBehavior::setTarget(AbstractMob* target)
+void AbstractAiBehavior::setTarget(LivingEntity* target)
 {
     this->target = target;
 };
@@ -17,11 +17,11 @@ void AbstractAiBehavior::loseTarget()
 {
     target = NULL;
 };
-AbstractMob* AbstractAiBehavior::getTarget()
+LivingEntity* AbstractAiBehavior::getTarget()
 {
     return target;
 };
-AbstractMob* AbstractAiBehavior::getOwn()
+LivingEntity* AbstractAiBehavior::getOwn()
 {
     return own;
 }

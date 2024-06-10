@@ -89,3 +89,12 @@ void AbstractMob::tick()
 {
     LivingEntity::tick();
 };
+void AbstractMob::setBehavior(AbstractAiBehavior* behavior)
+{
+    delete this->behavior;
+    this->behavior = behavior;
+};
+AbstractAiBehavior* AbstractMob::getBehavior()
+{
+    return behavior;
+};

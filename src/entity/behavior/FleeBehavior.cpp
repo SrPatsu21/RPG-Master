@@ -1,6 +1,6 @@
 #include "FleeBehavior.hpp"
 
-FleeBehavior::FleeBehavior(AbstractMob* own, AbstractMob* target)
+FleeBehavior::FleeBehavior(LivingEntity* own, LivingEntity* target)
 : AbstractAiBehavior(own, BEHAVIORTYPE::FLEE_BEHAVIOR, target)
 {
 

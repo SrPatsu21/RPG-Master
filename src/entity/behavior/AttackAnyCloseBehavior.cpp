@@ -1,6 +1,6 @@
 #include "AttackAnyCloseBehavior.hpp"
 
-AttackAnyCloseBehavior::AttackAnyCloseBehavior(AbstractMob* own, AbstractMob* target)
+AttackAnyCloseBehavior::AttackAnyCloseBehavior(LivingEntity* own, LivingEntity* target)
 : AbstractAiBehavior(own ,BEHAVIORTYPE::ATTACK_ANY_CLOSE_BEHAVIOR, target)
 {
 

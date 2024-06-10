@@ -3,7 +3,8 @@
 
 #include "./AbstractCollisionableEntity.hpp"
 #include "./behavior/AbstractAiBehavior.hpp"
-#include "./behavior/AttackAnyCloseBehavior.hpp"
+
+class AbstractAiBehavior;
 
 class LivingEntity : public AbstractCollisionableEntity
 {
@@ -15,7 +16,6 @@ protected:
     float damage;
     float range;
     virtual void setMaxLife(int maxlife);
-    AbstractAiBehavior* behavior;
 public:
     LivingEntity(HitBox* hitbox, int maxlife = 10, float range = 1.f, float damage = 1, int life = 10);
     ~LivingEntity();
@@ -26,10 +26,9 @@ public:
     float getRange();
     void setDamage(float damage);
     virtual void attack() = 0;
+    virtual void setBehavior(AbstractAiBehavior* behavior) = 0;
     float getDamage();
     //* change the entity state
-    virtual void setBehavior(AbstractAiBehavior* behavior);
-    virtual AbstractAiBehavior* getBehavior();
     virtual void move();
     virtual void tick();
 };
