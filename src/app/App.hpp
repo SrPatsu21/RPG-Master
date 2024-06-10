@@ -7,7 +7,7 @@
 
 #include "../map/MapRender.cpp"
 
-//todo only for "debuf"
+//todo only for "debug"
 #include <iostream>
 
 class App {

@@ -17,6 +17,7 @@ class MapRender {
     public:
         MapRender();
         ~MapRender();
+        void moveTiles(int x, int y);
         void initMapRender(sf::View &view);
         void updateTiles(sf::View &view);
         void render(sf::RenderWindow &win, sf::View &view);
