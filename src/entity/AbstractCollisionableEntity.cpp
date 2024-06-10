@@ -39,6 +39,7 @@ bool AbstractCollisionableEntity::isToDiscard()
 };
 void AbstractCollisionableEntity::move()
 {
+    getHitBox()->getDirection()->vecNormalMoviClac(getPosition());
 };
 void AbstractCollisionableEntity::tick()
 {
