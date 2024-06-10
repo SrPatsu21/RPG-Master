@@ -15,6 +15,7 @@ class App {
     sf::RenderWindow window;
     sf::View view;
     MapRender mapRender;
+    
     void initWindow();
     void processEvents();
     void update(sf::Time deltaTime);
