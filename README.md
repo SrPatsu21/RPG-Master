@@ -22,6 +22,9 @@ click on: Latest SDK
 \
 you will only need "Include" and "Lib" files here
 
+#### SLFW
+pacman -S mingw-w64-x86_64-sfml \
+and dependencies: https://packages.msys2.org/package/mingw-w64-x86_64-sfml
 ## Linux
 
 ### libraries:

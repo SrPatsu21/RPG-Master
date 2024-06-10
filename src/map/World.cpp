@@ -1,15 +1,31 @@
 #include "World.hpp"
 
+//* force static init
+World* World::world_ = NULL;
+
+World* World::initWorld(Character* player, int max_mobs, int max_projectiles)
+{
+    if (world_ == NULL)
+    {
+        world_ = new World(player, max_mobs, max_projectiles);
+    }else
+    {
+        world_->player = player;
+        world_->max_mobs = max_mobs;
+        world_->max_projectiles = max_projectiles;
+    }
+    return world_;
+};
 
 World::World(Character* player, int max_mobs, int max_projectiles)
 {
+    this->player = player;
     this->max_mobs = max_mobs;
     this->max_projectiles = max_projectiles;
 };
 World::~World()
 {
     //*delete projectiles
-    //TODO abstract projectile
     std::list<AbstractProjectile*>::iterator iprojectiles;
     for (iprojectiles = projectiles.begin(); projectiles.end() != iprojectiles; ++iprojectiles)
     {
@@ -30,9 +46,12 @@ World::~World()
 };
 void World::addProjectiles(AbstractProjectile* projectile)
 {
-    if (projectiles.size() < max_projectiles)
+    if (world_ != NULL)
     {
-        projectiles.push_back((projectile));
+        if (world_->projectiles.size() < world_->max_projectiles)
+        {
+            world_->projectiles.push_back((projectile));
+        }
     }
 };
 void World::addMob(AbstractMob* mob)
@@ -62,13 +81,13 @@ void World::verifyCollision()
     std::list<AbstractProjectile*>::iterator iprojectiles;
     for (iprojectiles = projectiles.begin(); projectiles.end() != iprojectiles; ++iprojectiles)
     {
-        if(player->getHitBox()->isColosionWithOther((*iprojectiles)->getHitBox()))
+        if(player->getHitBox()->isCollidingWithOther((*iprojectiles)->getHitBox()))
         {
             (*iprojectiles)->onCollision(player);
         }
         for (imobs = mobs.begin(); mobs.end() != imobs; ++imobs)
         {  
-            if((*imobs)->getHitBox()->isColosionWithOther((*iprojectiles)->getHitBox()))
+            if((*imobs)->getHitBox()->isCollidingWithOther((*iprojectiles)->getHitBox()))
             {
                 (*iprojectiles)->onCollision(*imobs); 
             };

@@ -1,4 +1,5 @@
-#include "AbstractMob.hpp"
+#include "./AbstractMob.hpp"
+#include "./../map/World.hpp"
 
 AbstractMob::AbstractMob(HitBox* hitbox, AbstractAiBehavior* behavior, int maxlife, float range, float damage, int life)
 : LivingEntity(hitbox, maxlife, range, damage, life)
@@ -75,7 +76,8 @@ void AbstractMob::receiveDamage(AbstractMob* Enemy, float damage)
 };
 void AbstractMob::attack()
 {
-    //TODO
+    //* thanks singleton 
+    World::addProjectiles(new AbstractProjectile(new HitBox(getHitBox()->getX(), getHitBox()->getY()), this));
 };
 void AbstractMob::move()
 {

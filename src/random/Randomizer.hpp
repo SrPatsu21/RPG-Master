@@ -10,7 +10,7 @@ private:
 protected:
     Randomizer();
     static Randomizer* randomizer_;
-    static double random_value;
+    double random_value;
     //* set new number every time
     void setRandom();
 public:
