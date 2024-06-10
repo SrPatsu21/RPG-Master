@@ -21,6 +21,7 @@ public:
     virtual int getLifeTime();
     virtual Vec2* getPosition();
     virtual Vec2Delta* getDirection();
+    virtual void setDirection(float direction);
     virtual void setDirection(float direction, float scale);
     virtual void move();
     virtual void tick();

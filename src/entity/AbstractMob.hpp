@@ -2,10 +2,12 @@
 #define ABSTRACTMOB_HPP
 
 #include <list>
+#include <iostream>
+#include <math.h>
 #include "./LivingEntity.hpp"
 #include "./buff/Buffs.hpp"
-#include "./behavior/AbstractAiBehavior.hpp"
-#include "./behavior/AttackAnyCloseBehavior.hpp"
+
+class AbstractAiBehavior;
 
 class AbstractMob : public LivingEntity
 {
@@ -24,12 +26,12 @@ public:
     virtual void removeBuff(Buffs* buff);
     virtual void removeBuff(BuffTypes type);
     virtual void clearBuff();
-    //* change the entity state
+    //* affect by behavior
+    virtual void receiveDamage(AbstractMob* Enemy, float damage);
+    //* beravior
     virtual void setBehavior(AbstractAiBehavior* behavior);
     virtual AbstractAiBehavior* getBehavior();
-    //* affect by behavior
-    virtual void receiveDamage(AbstractMob* Enemy);
-    //* creat a projectile to deal damage
+    //TODO create a projectile to deal damage
     virtual void attack();
     virtual void move();
     virtual void heal(int amount);

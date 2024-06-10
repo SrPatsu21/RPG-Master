@@ -41,6 +41,10 @@ Vec2Delta* AbstractParticles::getDirection()
 {
     return this->direction;
 };
+void AbstractParticles::setDirection(float direction)
+{
+    this->direction->setDelta(direction);
+};
 void AbstractParticles::setDirection(float direction, float scale)
 {
     this->direction->setDelta(direction);

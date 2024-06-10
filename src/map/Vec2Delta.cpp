@@ -45,5 +45,5 @@ Vec2Delta* Vec2Delta::clone()
 };
 void Vec2Delta::randDirection()
 {
-    setDelta(Random::getRandom());
+    setDelta(Randomizer::getRandom());
 };
