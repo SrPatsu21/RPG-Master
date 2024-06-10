@@ -9,7 +9,6 @@ World::World(Character* player, int max_mobs, int max_projectiles)
 World::~World()
 {
     //*delete projectiles
-    //TODO abstract projectile
     std::list<AbstractProjectile*>::iterator iprojectiles;
     for (iprojectiles = projectiles.begin(); projectiles.end() != iprojectiles; ++iprojectiles)
     {
