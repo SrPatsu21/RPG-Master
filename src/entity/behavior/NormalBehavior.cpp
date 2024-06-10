@@ -1,6 +1,6 @@
 #include "NormalBehavior.hpp"
 
-NormalBehavior::NormalBehavior(AbstractMob* own, AbstractMob* target)
+NormalBehavior::NormalBehavior(LivingEntity* own, LivingEntity* target)
 : AbstractAiBehavior(own,BEHAVIORTYPE::NORMAL_BEHAVIOR, target)
 {
 

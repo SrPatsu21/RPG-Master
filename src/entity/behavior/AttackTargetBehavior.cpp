@@ -1,6 +1,6 @@
 #include "AttackTargetBehavior.hpp"
 
-AttackTargetBehavior::AttackTargetBehavior(AbstractMob* own, AbstractMob* target)
+AttackTargetBehavior::AttackTargetBehavior(LivingEntity* own, LivingEntity* target)
 : AbstractAiBehavior(own, BEHAVIORTYPE::ATTACK_TARGET_BEHAVIOR, target)
 {
 

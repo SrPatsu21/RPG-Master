@@ -7,12 +7,17 @@
 class Randomizer
 {
 private:
-    double random;
+protected:
     Randomizer();
+    static Randomizer* randomizer_;
+    static double random_value;
     //* set new number every time
     void setRandom();
 public:
-friend class Random;
+    //* randomizer
+    static void tick();
+    //* get random value
+    static double getRandom();
 };
 
 #endif

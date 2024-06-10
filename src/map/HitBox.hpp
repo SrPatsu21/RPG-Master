@@ -5,6 +5,8 @@
 #include "Vec2Delta.hpp"
 #include "./../entity/AbstractCollisionableEntity.hpp"
 
+class AbstractCollisionableEntity;
+
 class HitBox : public Vec2
 {
 private:

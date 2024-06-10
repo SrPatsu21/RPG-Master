@@ -1,7 +1,7 @@
 #ifndef ABSTRACTAIBEHAVIOR_HPP
 #define ABSTRACTAIBEHAVIOR_HPP
 
-#include "./../AbstractMob.hpp"
+#include "./../LivingEntity.hpp"
 
 enum BEHAVIORTYPE
 {
@@ -11,20 +11,22 @@ enum BEHAVIORTYPE
     ATTACK_ANY_CLOSE_BEHAVIOR
 };
 
+class LivingEntity;
+
 class AbstractAiBehavior
 {
 private:
     BEHAVIORTYPE type;
-    AbstractMob* own;
-    AbstractMob* target;
+    LivingEntity* own;
+    LivingEntity* target;
 protected:
-    AbstractAiBehavior( AbstractMob* own, BEHAVIORTYPE type, AbstractMob* target = NULL);
+    AbstractAiBehavior( LivingEntity* own, BEHAVIORTYPE type, LivingEntity* target = NULL);
 public:
     BEHAVIORTYPE getBehaiviorType();
-    void setTarget(AbstractMob* target);
+    void setTarget(LivingEntity* target);
     void loseTarget();
-    AbstractMob* getTarget();
-    AbstractMob* getOwn();
+    LivingEntity* getTarget();
+    LivingEntity* getOwn();
     virtual void behavior() = 0;
 };
 

@@ -1,6 +1,6 @@
 #include "Character.hpp"
 
-Character::Character(HitBox* hitbox, AbstractAiBehavior* behavior, int maxlife = 10, float range = 1.f, float damage = 1, int life = 10)
+Character::Character(HitBox* hitbox, AbstractAiBehavior* behavior, int maxlife, float range, float damage, int life)
 : AbstractMob(hitbox, behavior, maxlife, range, damage, life)
 {
     

@@ -4,6 +4,8 @@
 #include <iostream>
 #include "./../inventory/InvSlot.hpp"
 
+class InvSlot;
+
 class AbstractItem
 {
 private:
