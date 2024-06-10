@@ -9,7 +9,7 @@ cls
 @REM set "pathap = src/*.cpp src/map/*.cpp  src/entity/*.cpp  src/entity/buff/*.cpp src/entity/behavior/*.cpp src/item/*.cpp src/inventory/*.cpp src/random/*.cpp src/app/*.cpp"
 echo building...
 @REM g++ -std=c++17 -O2 "%pathap%" -o ./build/BuildGame "%SFMLF%" "%SFML%"
-g++ src/*.cpp src/map/*.cpp  src/entity/*.cpp  src/entity/buff/*.cpp src/entity/behavior/*.cpp src/item/*.cpp src/inventory/*.cpp src/random/*.cpp src/app/*.cpp -o ./build/BuildGame ./external_library/SFML-2.6.1/bin/*
+g++ src/*.cpp src/map/*.cpp  src/entity/*.cpp  src/entity/buff/*.cpp src/entity/behavior/*.cpp src/item/*.cpp src/inventory/*.cpp src/random/*.cpp src/app/*.cpp -o ./build/BuildGame -L./external_library/SFML-2.6.1/include/SFML/Graphics.hpp -L./external_library/SFML-2.6.1/include/SFML/Window.hpp -L./external_library/SFML-2.6.1/include/SFML/System.hpp ./external_library/SFML-2.6.1/lib/*.a ./external_library/SFML-2.6.1/bin/*.dll
 .\build\BuildGame.exe
 @REM del "./src/BuildGame.exe" 
 
