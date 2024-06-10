@@ -3,7 +3,6 @@
 
 #include "./../map/Vec2.hpp"
 #include "./../map/Vec2Delta.hpp"
-#include "./../map/World.hpp"
 
 class Entity
 {
