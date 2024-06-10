@@ -2,7 +2,7 @@
 #define VEC2DELTA_HPP
 
 #include "Vec2.hpp"
-#include "./../random/Random.hpp"
+#include "./../random/Randomizer.hpp"
 
 
 class Vec2Delta

@@ -11,7 +11,6 @@ class World
 private:
     int max_mobs;
     int max_projectiles;
-    //TODO abstract projectiles
     std::list<AbstractProjectile*> projectiles;
     std::list<AbstractMob*> mobs;
     Character* player;

@@ -2,14 +2,19 @@
 
 Random::Random()
 {
-    if (NULL == (randomizer))
+    if (NULL == (randomizer_))
     {
-        randomizer = new Randomizer();
+        randomizer_ = new Randomizer();
     }
 };
 double Random::getRandom()
 {
-    return randomizer->random;
+    if (NULL == (randomizer))
+    {
+        randomizer = new Randomizer();
+    }
+    
+    return randomizer->random_value;
 };
 void Random::tick()
 {

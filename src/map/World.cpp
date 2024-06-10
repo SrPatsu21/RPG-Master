@@ -77,6 +77,8 @@ void World::verifyCollision()
 };
 void World::tickEveryOne()
 {
+    //* random
+    Randomizer::tick();
     //* tick player
     player->tick();  
     //* tick projectiles

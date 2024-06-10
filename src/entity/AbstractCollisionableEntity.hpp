@@ -5,6 +5,8 @@
 #include "./../map/HitBox.hpp"
 #include "./../map/Vec2Delta.hpp"
 
+class HitBox;
+
 class AbstractCollisionableEntity : public Entity
 {
 private:

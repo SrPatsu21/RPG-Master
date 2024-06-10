@@ -6,7 +6,7 @@
 class Random
 {
 private:
-    static Randomizer* randomizer;
+    static Randomizer* randomizer; 
 public:
     Random();
     //* static random value

@@ -52,3 +52,12 @@ void LivingEntity::move()
 void LivingEntity::tick()
 {
 };
+void LivingEntity::setBehavior(AbstractAiBehavior* behavior)
+{
+    delete this->behavior;
+    this->behavior = behavior;
+};
+AbstractAiBehavior* LivingEntity::getBehavior()
+{
+    return behavior;
+};

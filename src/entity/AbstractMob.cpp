@@ -62,16 +62,6 @@ void AbstractMob::clearBuff()
 {
     buffs.clear();
 };
-
-void AbstractMob::setBehavior(AbstractAiBehavior* behavior)
-{
-    delete this->behavior;
-    this->behavior = behavior;
-};
-AbstractAiBehavior* AbstractMob::getBehavior()
-{
-    return behavior;
-};
 void AbstractMob::receiveDamage(AbstractMob* Enemy, float damage)
 {
     life =(int) std::max(life-std::abs(damage), 0.f);
@@ -82,8 +72,6 @@ void AbstractMob::receiveDamage(AbstractMob* Enemy, float damage)
     {
         discard = true;
     }
-    
-    
 };
 void AbstractMob::attack()
 {
