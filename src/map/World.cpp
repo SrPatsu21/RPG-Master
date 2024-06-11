@@ -42,9 +42,6 @@ World::~World()
         delete (*imobs);
     }
     mobs.clear();
-    //* player
-    delete player;
-
 };
 void World::addProjectiles(AbstractProjectile* projectile)
 {
