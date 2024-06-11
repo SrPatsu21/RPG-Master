@@ -8,7 +8,7 @@
 class AbstractMobRender : public AbstractRender {
     private:
     public:
-        AbstractMobRender(std::string path) : AbstractRender(path);
+        AbstractMobRender(std::string path);
         ~AbstractMobRender();
         void handleInput(sf::Keyboard::Key k, bool state);
         void updateSprite(sf::Time deltaTime);
