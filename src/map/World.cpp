@@ -1,4 +1,6 @@
 #include "World.hpp"
+#include "./../random/Randomizer.hpp"
+#include "./../entity/behavior/AttackTargetBehavior.hpp"
 
 //* force static init
 World* World::world_ = NULL;
@@ -113,8 +115,16 @@ void World::tickEveryOne()
     {
         (*imobs)->tick();
     }
+    //* create new mobs
+    generateMobs();
 }
-
+void World::generateMobs()
+{
+    if (3 & (int)Randomizer::getRandom())
+    {
+            addMob(new AbstractMob(new HitBox(player->getHitBox()->getX(), player->getHitBox()->getX()), new AttackTargetBehavior(NULL, player)));
+    }
+}
 int World::getMaxMob()
 {
     return max_mobs;

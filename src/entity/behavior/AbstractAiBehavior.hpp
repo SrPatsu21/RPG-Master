@@ -26,6 +26,7 @@ public:
     void setTarget(LivingEntity* target);
     void loseTarget();
     LivingEntity* getTarget();
+    void setOwn(LivingEntity* own);
     LivingEntity* getOwn();
     virtual void behavior() = 0;
 };

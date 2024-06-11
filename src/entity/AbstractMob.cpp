@@ -4,7 +4,11 @@
 AbstractMob::AbstractMob(HitBox* hitbox, AbstractAiBehavior* behavior, int maxlife, float range, float damage, int life)
 : LivingEntity(hitbox, maxlife, range, damage, life)
 {
-    this->behavior = behavior;
+    if (NULL == behavior->getOwn())
+    {
+           this->behavior = behavior;
+           this->behavior->setOwn(this);
+    }
 };
 AbstractMob::~AbstractMob()
 {

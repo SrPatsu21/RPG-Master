@@ -27,10 +27,11 @@ protected:
     
     void verifyCollision();
     void tickEveryOne();
+    //* create mobs
+    void generateMobs();
     //*tick every entity
     void gametick();
     World(Character* player, int max_mobs = 120, int max_projectiles = 500);
-
 public:
     //* singleton init
     static World* initWorld(Character* player, int max_mobs = 120, int max_projectiles = 500);
