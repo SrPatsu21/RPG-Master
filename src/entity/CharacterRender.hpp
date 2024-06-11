@@ -13,7 +13,6 @@ class CharacterRender : AbstractRender{
         bool mRight;
 
     public:
-        CharacterRender();
         CharacterRender(std::string path);
         ~CharacterRender();
         void handleInput(sf::Keyboard::Key k, bool state);

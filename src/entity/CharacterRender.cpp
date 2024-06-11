@@ -1,8 +1,5 @@
 #include "CharacterRender.hpp"
 
-CharacterRender::CharacterRender() : AbstractRender() {
-}
-
 CharacterRender::CharacterRender(std::string path) : AbstractRender(path) {
 }
 
@@ -44,6 +41,7 @@ void CharacterRender::updateSprite(float deltaTime) {
     if (this->mRight) {
         y += MOV_HORIZONTAL_DEFAULT;
     }
-
+    
     //* do something with 
+
 }

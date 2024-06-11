@@ -1,8 +1,5 @@
 #include "AbstractRender.hpp"
 
-AbstractRender::AbstractRender() {
-}
-
 AbstractRender::AbstractRender(std::string path) {
     this->loadTexture(path);
 }

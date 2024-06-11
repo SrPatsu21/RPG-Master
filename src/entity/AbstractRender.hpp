@@ -14,7 +14,6 @@ class AbstractRender {
         sf::Texture texture;
         HitBox *hitBox;
     public:
-    AbstractRender();
     AbstractRender(std::string path);
     ~AbstractRender();
     void draw(sf::RenderWindow *win);
