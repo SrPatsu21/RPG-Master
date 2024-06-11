@@ -12,5 +12,5 @@ const unsigned int TILE_SIZE_X = 100;
 const unsigned int TILE_SIZE_Y = 100;
 
 //* movement default speed
-const unsigned float MOV_VERTICAL_DEFAULT = 100.0f;
-const unsigned float MOV_HORIZONTAL_DEFAULT = 150.0f;
+const float MOV_VERTICAL_DEFAULT = 100.0f;
+const float MOV_HORIZONTAL_DEFAULT = 150.0f;

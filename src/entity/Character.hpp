@@ -11,7 +11,6 @@ public:
     virtual void receiveDamage(AbstractMob* Enemy, float damage);
     //* creat a projectile to deal damage
     virtual void attack();
-    virtual void heal(int amount);
     virtual void tick();
 };
 
