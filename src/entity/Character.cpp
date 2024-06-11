@@ -2,8 +2,8 @@
 #include "./../map/World.hpp"
 #include "./behavior/NormalBehavior.hpp"
 
-Character::Character(HitBox* hitbox, int maxlife, float range, float damage, int life)
-: AbstractMob(hitbox, new NormalBehavior(this, NULL), maxlife, range, damage, life)
+Character::Character(HitBox* hitbox, std::string path, int maxlife, float range, float damage, int life)
+: AbstractMob(hitbox, new NormalBehavior(this, NULL), maxlife, range, damage, life), CharacterRender(path)
 {
     
 };

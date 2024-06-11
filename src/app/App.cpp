@@ -1,10 +1,9 @@
 #include "App.hpp"
 
-App::App() : window(sf::VideoMode(WIN_SIZE_X, WIN_SIZE_Y), "RPG-Master"), view(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(WIN_SIZE_X, WIN_SIZE_Y)), p1(new HitBox(WIN_SIZE_X / 2, WIN_SIZE_Y / 2), nullptr, "../resources/textures/richter-belmont-no-animation.png") {
+App::App() : window(sf::VideoMode(WIN_SIZE_X, WIN_SIZE_Y), "RPG-Master"), view(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(WIN_SIZE_X, WIN_SIZE_Y)), p1(new HitBox(WIN_SIZE_X / 2, WIN_SIZE_Y / 2), "../resources/textures/richter-belmont-no-animation.png") {
 }
 
 App::~App() {
-    
 }
 
 void App::initWindow() {
