@@ -31,7 +31,7 @@ World::~World()
     std::list<AbstractProjectile*>::iterator iprojectiles;
     for (iprojectiles = projectiles.begin(); projectiles.end() != iprojectiles; ++iprojectiles)
     {
-        delete (*iprojectiles);
+        iprojectiles = projectiles.erase(iprojectiles);
     }
     projectiles.clear();
 
@@ -39,10 +39,9 @@ World::~World()
     std::list<AbstractMob*>::iterator imobs;
     for (imobs = mobs.begin(); mobs.end() != imobs; ++imobs)
     {
-        delete (*imobs);
+        imobs = mobs.erase(imobs);
     }
     mobs.clear();
-
 };
 void World::addProjectiles(AbstractProjectile* projectile)
 {
