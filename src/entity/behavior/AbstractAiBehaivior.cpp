@@ -21,6 +21,10 @@ LivingEntity* AbstractAiBehavior::getTarget()
 {
     return target;
 };
+void AbstractAiBehavior::setOwn(LivingEntity* own)
+{
+    this->own = own;
+}
 LivingEntity* AbstractAiBehavior::getOwn()
 {
     return own;
