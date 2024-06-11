@@ -20,8 +20,10 @@ class AbstractRender {
     void loadHitBox();
     void loadTexture(std::string path);
     void setSpritePos(double x, double y);
+    void setSpriteSize(double x, double y);
     void movePos(double x, double y);
-    virtual void updateSprite(float deltaTime) = 0;
+    sf::RectangleShape getSprite();
+    virtual void updateSprite(sf::Time deltaTime) = 0;
     
 };
 

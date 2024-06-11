@@ -5,7 +5,7 @@
 #include "./AbstractMob.hpp"
 #include "./CharacterRender.hpp"
 
-class Character : public AbstractMob, CharacterRender
+class Character : public AbstractMob, public CharacterRender
 {
 public:
     Character(HitBox* hitbox, std::string path, int maxlife = 10, float range = 1.f, float damage = 1, int life = 10);
