@@ -1,9 +1,11 @@
 #include "App.hpp"
 
 App::App() : window(sf::VideoMode(WIN_SIZE_X, WIN_SIZE_Y), "RPG-Master"), view(sf::Vector2f(0.0f, 0.0f), sf::Vector2f(WIN_SIZE_X, WIN_SIZE_Y)), p1(new HitBox(WIN_SIZE_X / 2, WIN_SIZE_Y / 2), "./src/resources/textures/player.png") {
+    this->world->initWorld(&this->p1);
 }
 
 App::~App() {
+    delete (this->world);
 }
 
 void App::initWindow() {

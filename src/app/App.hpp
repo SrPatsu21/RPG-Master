@@ -7,6 +7,7 @@
 
 #include "../map/MapRender.hpp"
 #include "../entity/Character.hpp"
+#include "../map/World.hpp"
 
 //todo only for "debug"
 #include <iostream>
@@ -17,6 +18,7 @@ class App {
     sf::View view;
     MapRender mapRender;
     Character p1;
+    World *world;
     
     void initWindow();
     void processEvents();

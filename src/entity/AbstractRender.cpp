@@ -5,7 +5,7 @@ AbstractRender::AbstractRender(std::string path) {
 }
 
 AbstractRender::~AbstractRender() {
-    delete (this->hitBox);
+    // delete (this->hitBox);
 }
 
 void AbstractRender::draw(sf::RenderWindow *win) {
