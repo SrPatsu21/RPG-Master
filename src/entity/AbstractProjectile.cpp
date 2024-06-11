@@ -29,7 +29,7 @@ int AbstractProjectile::getLifeTime()
 };
 void AbstractProjectile::onCollision(AbstractMob* mob)
 {
-
+    mob->receiveDamage(getOwner(), getDamage());
 };
 void AbstractProjectile::setLifeTime(int lifetime)
 {

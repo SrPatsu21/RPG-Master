@@ -94,6 +94,7 @@ void AbstractMob::walk(Vec2* target)
 void AbstractMob::tick()
 {
     LivingEntity::tick();
+    getBehavior()->behavior();
 };
 void AbstractMob::setBehavior(AbstractAiBehavior* behavior)
 {
