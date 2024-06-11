@@ -1,8 +1,9 @@
 #include "Character.hpp"
 #include "./../map/World.hpp"
+#include "./behavior/NormalBehavior.hpp"
 
-Character::Character(HitBox* hitbox, AbstractAiBehavior* behavior, int maxlife, float range, float damage, int life)
-: AbstractMob(hitbox, behavior, maxlife, range, damage, life)
+Character::Character(HitBox* hitbox, int maxlife, float range, float damage, int life)
+: AbstractMob(hitbox, new NormalBehavior(this, NULL), maxlife, range, damage, life)
 {
     
 };

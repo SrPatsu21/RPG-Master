@@ -6,7 +6,7 @@
 class Character : public AbstractMob
 {
 public:
-    Character(HitBox* hitbox, AbstractAiBehavior* behavior, int maxlife = 10, float range = 1.f, float damage = 1, int life = 10);
+    Character(HitBox* hitbox, int maxlife = 10, float range = 1.f, float damage = 1, int life = 10);
     //* affect by behavior
     virtual void receiveDamage(AbstractMob* Enemy, float damage);
     //* creat a projectile to deal damage
