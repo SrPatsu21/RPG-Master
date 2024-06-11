@@ -26,7 +26,6 @@ protected:
     void setMaxProjectiles(int max_projectiles);
     
     void verifyCollision();
-    void tickEveryOne();
     //* create mobs
     void generateMobs();
     //*tick every entity
@@ -42,6 +41,8 @@ public:
     static void addProjectiles(AbstractProjectile* projectile);
     //*add new entity
     void addMob(AbstractMob* mob);
+    //*
+    void tickEveryOne();
 };
 
 #endif
