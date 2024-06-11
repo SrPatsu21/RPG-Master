@@ -1,8 +1,5 @@
 #include "AbstractRender.hpp"
 
-AbstractRender::AbstractRender() {
-}
-
 AbstractRender::AbstractRender(std::string path) {
     this->loadTexture(path);
 }
@@ -23,7 +20,7 @@ void AbstractRender::loadTexture(std::string path) {
     if (!this->texture.loadFromFile(path)) {
         std::cout << "ERROR! from load p1 texture!" << std::endl;
     } else {
-        std::cout << "SUCESS! from load p1 texture!" << std::endl;
+        std::cout << "SUCCESS! from load p1 texture!" << std::endl;
     }
     this->sprite.setTexture(&this->texture);
     this->sprite.setOrigin(this->texture.getSize().x / 2, this->texture.getSize().y / 2);
@@ -34,7 +31,16 @@ void AbstractRender::setSpritePos(double x, double y) {
     this->sprite.setPosition((float)x, (float)y);
 }
 
+void AbstractRender::setSpriteSize(double x, double y) {
+    this->sprite.setSize(sf::Vector2f((float) x,(float) y));
+}
+
 void AbstractRender::movePos(double x, double y) {
     this->sprite.move((float) x, (float) y);
-    this->hitBox->moveXY(x, y);
+    this->hitBox->setPos(this->sprite.getPosition().x, this->sprite.getPosition().y);
+    // this->hitBox->moveXY(x, y);
+}
+
+sf::RectangleShape AbstractRender::getSprite() {
+    return this->sprite;
 }

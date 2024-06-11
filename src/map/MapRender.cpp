@@ -7,20 +7,92 @@ MapRender::~MapRender() {
 }
 
 void MapRender::moveTiles(int x, int y) {
+    int temp;
     if (-1 == x) {
         //*left
         std::cout << "Tile move left" << std::endl;
+        for (int j = 0; j < 3; j++) {
+            for (int i = 0; i < 3; i++) {
+                temp = (j * 3) + i;
+                this->tiles[temp].setPosition(this->tiles[temp].getPosition().x - TILE_SIZE_X, this->tiles[temp].getPosition().y);
+            }
+        }
+        this->centerX -= TILE_SIZE_X;
     } else if (1 == x) {
         //*right
         std::cout << "Tile move right" << std::endl;
+        for (int j = 0; j < 3; j++) {
+            for (int i = 0; i < 3; i++) {
+                temp = (j * 3) + i;
+                this->tiles[temp].setPosition(this->tiles[temp].getPosition().x + TILE_SIZE_X, this->tiles[temp].getPosition().y);
+            }
+        }
+        this->centerX += TILE_SIZE_X;
     }
     if (-1 == y) {
         //*top
-        std::cout << "Tile move top" << std::endl;
+        std::cout << "Tile move up" << std::endl;
+        for (int j = 0; j < 3; j++) {
+            for (int i = 0; i < 3; i++) {
+                temp = (j * 3) + i;
+                // this->tiles[temp].setPosition(this->tiles[temp].getPosition().x, abs((float) this->tiles[temp].getPosition().y - TILE_SIZE_Y));
+                // std::cout << "before tiles [" << temp <<"] - x " << this->tiles[temp].getPosition().x << " - y " << this->tiles[temp].getPosition().y << std::endl;
+                this->tiles[temp].setPosition(this->tiles[temp].getPosition().x, this->tiles[temp].getPosition().y - TILE_SIZE_Y);
+                // std::cout << "after tiles [" << temp <<"] - x " << this->tiles[temp].getPosition().x << " - y " << this->tiles[temp].getPosition().y << std::endl;
+            }
+        }
+        this->centerY -= TILE_SIZE_Y;
     } else if (1 == y) {
         //*down
         std::cout << "Tile move down" << std::endl;
+        for (int j = 0; j < 3; j++) {
+            for (int i = 0; i < 3; i++) {
+                temp = (j*3) + i;
+                this->tiles[temp].setPosition(this->tiles[temp].getPosition().x, this->tiles[temp].getPosition().y + TILE_SIZE_Y);
+            }
+        }
+        this->centerY += TILE_SIZE_Y;
     }
+    std::cout << "center - x " << this->centerX << " - y " << this->centerY << std::endl;
+
+    // if (-1 == x) {
+    //     //*left
+    //     for (int j = 0; j < 3; j++) {
+    //         for (int i = 0; i < 3; i++) {
+    //             temp = (j*3) + i;
+    //             this->tiles[temp].setPosition(this->tiles[temp].getPosition().x - TILE_SIZE_X, this->tiles[temp].getPosition().y);
+    //         }
+    //     }
+    //     this->centerX += -(TILE_SIZE_X);
+    // } else if (1 == x) {
+    //     //*right
+    //     for (int j = 0; j < 3; j++) {
+    //         for (int i = 0; i < 3; i++) {
+    //             temp = (j*3) + i;
+    //             this->tiles[temp].setPosition(this->tiles[temp].getPosition().x + TILE_SIZE_X, this->tiles[temp].getPosition().y);
+    //         }
+    //     }
+    //     this->centerX += TILE_SIZE_X;
+    // }
+    // if (-1 == y) {
+    //     //*top
+    //     for (int j = 0; j < 3; j++) {
+    //         for (int i = 0; i < 3; i++) {
+    //             temp = (j*3) + i;
+    //             this->tiles[temp].setPosition(this->tiles[temp].getPosition().x, this->tiles[temp].getPosition().y - TILE_SIZE_Y);
+    //         }
+    //     }
+    //     this->centerY += -(TILE_SIZE_Y);
+    // } else if (1 == y) {
+    //     //*down
+    //     for (int j = 0; j < 3; j++) {
+    //         for (int i = 0; i < 3; i++) {
+    //             temp = (j*3) + i;
+    //             this->tiles[temp].setPosition(this->tiles[temp].getPosition().x, this->tiles[temp].getPosition().y + TILE_SIZE_Y);
+    //         }
+    //     }
+    //     this->centerY += TILE_SIZE_Y;
+    // }
 }
 
 void MapRender::initMapRender(sf::View &view) {
@@ -67,14 +139,18 @@ void MapRender::updateTiles(sf::View &view) {
     if (view.getCenter().x > (this->centerX + (TILE_SIZE_X / 2))) {  //* move to right
         moveTiles(1, 0);
     } else if (view.getCenter().x < (this->centerX - (TILE_SIZE_X / 2))) {  //* move to left
+        std::cout << "view center - x " << view.getCenter().x << " - y " << view.getCenter().y << std::endl;
+        std::cout << "center - x " << this->centerX << " - y " << this->centerY << std::endl;
         moveTiles(-1, 0);
     }
 
     //*check if y need change
-    if (view.getCenter().y < (this->centerY) - (TILE_SIZE_Y / 2)) {  //* move to up
-        moveTiles(0, -1);
-    } else if (view.getCenter().y > (this->centerY) + (TILE_SIZE_Y / 2)) {  //* move to down
+    if (view.getCenter().y > (this->centerY) + (TILE_SIZE_Y / 2)) {  //* move to down
         moveTiles(0, 1);
+    } else if (view.getCenter().y < (this->centerY) - (TILE_SIZE_Y / 2)) {  //* move to up
+        // std::cout << "view center - x " << view.getCenter().x << " - y " << view.getCenter().y << std::endl;
+        // std::cout << "center - x " << this->centerX << " - y " << this->centerY << std::endl;
+        moveTiles(0, -1);
     }
 }
 
