@@ -10,3 +10,7 @@ const unsigned int VIEW_SIZE_Y = 720;
 //* map tiles consts
 const unsigned int TILE_SIZE_X = 100;
 const unsigned int TILE_SIZE_Y = 100;
+
+//* movement default speed
+const unsigned float MOV_VERTICAL_DEFAULT = 100.0f;
+const unsigned float MOV_HORIZONTAL_DEFAULT = 150.0f;
