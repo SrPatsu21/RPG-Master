@@ -1,9 +1,10 @@
 #include "CharacterRender.hpp"
 
-CharacterRender::CharacterRender() : AbstractRender() {
-}
-
 CharacterRender::CharacterRender(std::string path) : AbstractRender(path) {
+    this->mUp = false;
+    this->mDown = false;
+    this->mLeft = false;
+    this->mRight = false;
 }
 
 CharacterRender::~CharacterRender() {
@@ -29,7 +30,7 @@ void CharacterRender::handleInput(sf::Keyboard::Key k, bool state) {
     }
 }
 
-void CharacterRender::updateSprite(float deltaTime) {
+void CharacterRender::updateSprite(sf::Time deltaTime) {
     //* do something with input
     double x, y;
     if (this->mUp) {
@@ -39,11 +40,14 @@ void CharacterRender::updateSprite(float deltaTime) {
         y += MOV_VERTICAL_DEFAULT;
     }
     if (this->mLeft) {
-        y += -(MOV_HORIZONTAL_DEFAULT);
+        x += -(MOV_HORIZONTAL_DEFAULT);
     }
     if (this->mRight) {
-        y += MOV_HORIZONTAL_DEFAULT;
+        x += MOV_HORIZONTAL_DEFAULT;
     }
 
+    this->movePos(x * deltaTime.asSeconds(), y * deltaTime.asSeconds());
+    
     //* do something with 
+
 }

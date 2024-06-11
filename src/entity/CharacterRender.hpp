@@ -5,7 +5,7 @@
 #include <string>
 #include "AbstractRender.hpp"
 
-class CharacterRender : AbstractRender{
+class CharacterRender : public AbstractRender{
     private:
         bool mUp;
         bool mDown;
@@ -13,11 +13,10 @@ class CharacterRender : AbstractRender{
         bool mRight;
 
     public:
-        CharacterRender();
         CharacterRender(std::string path);
         ~CharacterRender();
         void handleInput(sf::Keyboard::Key k, bool state);
-        void updateSprite(float deltaTime);
+        void updateSprite(sf::Time deltaTime);
 
 };
 
