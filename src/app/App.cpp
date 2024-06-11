@@ -48,6 +48,7 @@ void App::update(sf::Time deltaTime) {
 void App::render() {
     this->window.clear();
     this->view.setCenter(this->p1.getSprite().getPosition().x, this->p1.getSprite().getPosition().y);
+    this->window.setView(this->view);
     this->mapRender.render(this->window, this->view);
     this->p1.draw(&this->window);
 
